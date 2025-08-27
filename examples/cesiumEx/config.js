@@ -195,7 +195,14 @@ var exampleConfig = {
                         name_en: "",
                         thumbnail: "0.jpg",
                         fileName: "00"
-                    },{
+                    },
+                {
+                    name: "1.0、格网",
+                    name_en: "1.0、格网",
+                    thumbnail: "1.0、格网.jpg",
+                    fileName: "1.0、格网"
+                },
+                {
                     name: "1.1、默认设置",
                     name_en: "1.1、默认设置",
                     thumbnail: "1.1、默认设置.jpg",

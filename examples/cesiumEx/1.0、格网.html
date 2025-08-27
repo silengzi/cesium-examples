@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./../../libs/cesium/Cesium1.98/Widgets/widgets.css">
+    <script type="text/javascript" src="./../../libs/cesium/Cesium1.98/Cesium.js"></script>
+    <script src="./latlng.js"></script>
+</head>
+<body style="margin: 0; overflow: hidden; background: #fff; width: 100%; height: 100%; position: absolute; top: 0">
+    <div id="map" style="margin: 0 auto; width: 100%; height: 100%"></div>
+    <script type="text/javascript">
+        Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIwNDljNWFmZC03MzRlLTRiMDMtYWIwMi00Yjk4YWQ4NzQwZGEiLCJpZCI6MjU5LCJpYXQiOjE3NTEzNzkyMzR9.OTqPNs3UGNnT1LYkPTavV80wN8Es_YphpJgQcpdnqWc'
+
+        const viewer = new Cesium.Viewer('map', {})
+        const xyz = new Cesium.UrlTemplateImageryProvider({
+            url: '///data.mars3d.cn/tile/img/{z}/{x}/{y}.jpg'
+        })
+        viewer.imageryLayers.addImageryProvider(xyz)
+
+        const coordinates = Cesium.Rectangle.fromDegrees(-180, -90, 180, 90)
+        const gridMaterial = new Cesium.GridMaterialProperty({
+        })
+        const rectangle = viewer.entities.add({
+            rectangle: {
+                coordinates: coordinates,
+                material: gridMaterial
+            }
+        })
+
+
+        viewer.camera.moveEnd.addEventListener(callbackFunc)
+
+        // 这个方法的作用就是，当相机移动后，重新渲染格网（当前视图/全球）
+        function callbackFunc(event) { // 摄像机移动结束时触发的回调（event为事件对象）
+            const bounds = latlng.getViewBounds(viewer) // 获取当前视图窗口的经纬度边界（西南/东北）
+            if(bounds.northeast.lng == 180 && rectangle.rectangle.coordinates.getValue().east.toFixed(7) == '3.1415927') { // 若右侧经度已到达180°且实体矩形的东边界约等于π弧度（180°），表示全球范围
+
+            } else { // 否则（不是全球范围）
+                rectangle.rectangle.coordinates = Cesium.Rectangle.fromDegrees( // 将矩形更新为当前视图窗口对应的经纬度范围
+                    bounds.southwest.lng,
+                    bounds.southwest.lat,
+                    bounds.northeast.lng,
+                    bounds.northeast.lat
+                )
+            }
+        }
+    </script>
+    
+</body>
+</html>
