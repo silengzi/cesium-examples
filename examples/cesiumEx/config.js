@@ -220,30 +220,30 @@ var exampleConfig = {
                     thumbnail: "1.3、坐标、坐标转换.jpg",
                     fileName: "1.3、坐标、坐标转换"
                 },
-                // {
-                //     name: "1.4、屏幕、场景、地表坐标",
-                //     name_en: "1.4、屏幕、场景、地表坐标",
-                //     thumbnail: "1.4、屏幕、场景、地表坐标.jpg",
-                //     fileName: "1.4、屏幕、场景、地表坐标"
-                // },
-                // {
-                //     name: "1.5、相机",
-                //     name_en: "1.5、相机",
-                //     thumbnail: "1.5、相机.jpg",
-                //     fileName: "1.5、相机"
-                // },
-                // {
-                //     name: "1.6、事件",
-                //     name_en: "1.6、事件",
-                //     thumbnail: "1.6、事件.jpg",
-                //     fileName: "1.6、事件"
-                // },
-                // {
-                //     name: "1.7、飞行漫游",
-                //     name_en: "1.7、飞行漫游",
-                //     thumbnail: "1.7、飞行漫游.jpg",
-                //     fileName: "1.7、飞行漫游"
-                // },
+                {
+                    name: "1.4、屏幕、场景、地表坐标",
+                    name_en: "1.4、屏幕、场景、地表坐标",
+                    thumbnail: "1.4、屏幕、场景、地表坐标.jpg",
+                    fileName: "1.4、屏幕、场景、地表坐标"
+                },
+                {
+                    name: "1.5、相机",
+                    name_en: "1.5、相机",
+                    thumbnail: "1.5、相机.jpg",
+                    fileName: "1.5、相机"
+                },
+                {
+                    name: "1.6、事件",
+                    name_en: "1.6、事件",
+                    thumbnail: "1.6、事件.jpg",
+                    fileName: "1.6、事件"
+                },
+                {
+                    name: "1.7、飞行漫游",
+                    name_en: "1.7、飞行漫游",
+                    thumbnail: "1.7、飞行漫游.jpg",
+                    fileName: "1.7、飞行漫游"
+                },
                 // {
                 //     name: "1.8、时间运动",
                 //     name_en: "1.8、时间运动",
