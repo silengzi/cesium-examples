@@ -244,18 +244,18 @@ var exampleConfig = {
                     thumbnail: "1.7、飞行漫游.jpg",
                     fileName: "1.7、飞行漫游"
                 },
-                // {
-                //     name: "1.8、时间运动",
-                //     name_en: "1.8、时间运动",
-                //     thumbnail: "1.8、时间运动.jpg",
-                //     fileName: "1.8、时间运动"
-                // },
-                // {
-                //     name: "1.9、气泡窗口",
-                //     name_en: "1.9、气泡窗口",
-                //     thumbnail: "1.9、气泡窗口.jpg",
-                //     fileName: "1.9、气泡窗口"
-                // },
+                {
+                    name: "1.8、时间运动",
+                    name_en: "1.8、时间运动",
+                    thumbnail: "1.8、时间运动.jpg",
+                    fileName: "1.8、时间运动"
+                },
+                {
+                    name: "1.9、气泡窗口",
+                    name_en: "1.9、气泡窗口",
+                    thumbnail: "1.9、气泡窗口.jpg",
+                    fileName: "1.9、气泡窗口"
+                },
                 // {
                 //     name: "1.10、反选遮罩",
                 //     name_en: "1.10、反选遮罩",
@@ -286,12 +286,12 @@ var exampleConfig = {
                 //     thumbnail: "1.14、倾斜摄影单体.jpg",
                 //     fileName: "1.14、倾斜摄影单体"
                 // },
-                // {
-                //     name: "1.15、罗盘、导航条",
-                //     name_en: "1.15、罗盘、导航条",
-                //     thumbnail: "1.15、罗盘、导航条.jpg",
-                //     fileName: "1.15、罗盘、导航条"
-                // },
+                {
+                    name: "1.15、罗盘、导航条",
+                    name_en: "1.15、罗盘、导航条",
+                    thumbnail: "1.15、罗盘、导航条.jpg",
+                    fileName: "1.15、罗盘、导航条"
+                },
                 // {
                 //     name: "1.16、绕点飞行",
                 //     name_en: "1.16、绕点飞行",
@@ -304,12 +304,12 @@ var exampleConfig = {
                 //     thumbnail: "1.17、深度检测.jpg",
                 //     fileName: "1.17、深度检测"
                 // },
-                // {
-                //     name: "1.18、echarts时间轴",
-                //     name_en: "1.18、echarts时间轴",
-                //     thumbnail: "1.18、echarts时间轴.jpg",
-                //     fileName: "1.18、echarts时间轴"
-                // },
+                {
+                    name: "1.18、echarts时间轴",
+                    name_en: "1.18、echarts时间轴",
+                    thumbnail: "1.18、echarts时间轴.jpg",
+                    fileName: "1.18、echarts时间轴"
+                },
                 // {
                 //     name: "1.19、任意坐标转换",
                 //     name_en: "1.19、任意坐标转换",
@@ -322,6 +322,12 @@ var exampleConfig = {
                 //     thumbnail: "1.20、echarts配置.jpg",
                 //     fileName: "1.20、echarts配置"
                 // },
+                {
+                    name: "1.21、限制视角",
+                    name_en: "1.21、限制视角",
+                    thumbnail: "1.21、限制视角.jpg",
+                    fileName: "1.21、限制视角"
+                },
                 // {
                 //     name: "1.22、根据点获取高度",
                 //     name_en: "1.22、根据点获取高度",

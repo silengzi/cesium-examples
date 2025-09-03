@@ -1,0 +1,140 @@
+<!--********************************************************************
+* by jiawanlong
+*********************************************************************-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./../../libs/cesium/Cesium1.98/Widgets/widgets.css">
+    <script type="text/javascript" src="./../../libs/cesium/Cesium1.98/Cesium.js"></script>
+</head>
+
+<body style="margin: 0; overflow: hidden; background: #fff; width: 100%; height: 100%; position: absolute; top: 0">
+    <div id="map" style="margin: 0 auto; width: 100%; height: 100%"></div>
+    <script type="text/javascript">
+
+        Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIwNDljNWFmZC03MzRlLTRiMDMtYWIwMi00Yjk4YWQ4NzQwZGEiLCJpZCI6MjU5LCJpYXQiOjE3NTEzNzkyMzR9.OTqPNs3UGNnT1LYkPTavV80wN8Es_YphpJgQcpdnqWc'
+        const viewer = new Cesium.Viewer('map', {});
+        
+        // 开启帧率
+        viewer.scene.debugShowFramesPerSecond = true;
+
+        
+        let start = new Cesium.JulianDate.fromDate(new Date())
+
+        // 开始时间  cesium用的JulianDate:代表天文朱利安时间,用的是世界协调时,比北京时间晚8个小时, 加上东8时，就是当前的真正时间
+        start = Cesium.JulianDate.addHours(start, 8, new Cesium.JulianDate())
+        // 结束时间 6分钟
+        const center = Cesium.JulianDate.addSeconds(start, 180, new Cesium.JulianDate())
+        const center2 = Cesium.JulianDate.addSeconds(start, 200, new Cesium.JulianDate())
+        const stop = Cesium.JulianDate.addSeconds(start, 360, new Cesium.JulianDate())
+
+        // 设置时钟范围
+        viewer.clock.startTime = start.clone()
+        viewer.clock.stopTime = stop.clone()
+        viewer.clock.currentTime = start.clone()
+
+        // 循环结束时后续动作
+        viewer.clock.clockRange = Cesium.ClockRange.LOOP_STOP
+
+        // 时间速率控制速度，时间调快多少倍，比如原来用时360秒，调整10倍后，现在用时36秒
+        viewer.clock.multiplier = 1
+        // 给下方时间线设置边界
+        viewer.timeline.zoomTo(start, stop)
+
+        const position = new Cesium.SampledPositionProperty()
+
+        const startPos = Cesium.Cartesian3.fromDegrees(-90, 20, 10000)
+        const centerPos = Cesium.Cartesian3.fromDegrees(-60, 40, 1000000)
+        const centerPos2 = Cesium.Cartesian3.fromDegrees(-60, 42, 10000)
+        const endPos = Cesium.Cartesian3.fromDegrees(-120, 30, 10000)
+
+        position.addSample(start, startPos)
+        position.addSample(center, centerPos)
+        position.addSample(center2, centerPos2)
+        position.addSample(stop, endPos)
+
+        const entity = viewer.entities.add({
+            // 将实体availability设置为与模拟时间相同的时间间隔。
+            availability: new Cesium.TimeIntervalCollection([new Cesium.TimeInterval({
+                start,
+                stop
+            })]),
+            position, // 计算实体位置属性
+            // 基于位置移动自动计算方向
+            orientation: new Cesium.VelocityOrientationProperty(position),
+            model: {
+                uri: 'missile/scene.gltf',
+                minimumOixelSize: 32
+            },
+            label: {
+                text: '我是飞机',
+                font: '10pt monospace',
+                outlineWidth: 2,
+                fillColor: Cesium.Color.BLUE,
+                showBackground: true,
+                pixelOffset: new Cesium.Cartesian2(40, 20),
+                backgroundColor: Cesium.Color.RED
+            },
+            // 路径
+            path: {
+                show: true,
+                resolution: 1,
+                material: new Cesium.PolylineGlowMaterialProperty({
+                    glowPower: 0.1,
+                    color: Cesium.Color.PINK
+                }),
+                width: 5
+            }
+        })
+
+        // 开启运动
+        viewer.clock.shouldAnimate = true
+
+
+        // 第三人称
+        // viewer.trackedEntity = entity
+
+        // 第一人称
+        viewer.scene.preUpdate.addEventListener(traceHandler)
+
+        /**
+         * 第一人称视角跟踪处理器
+         * 在每一帧更新时调用，实现相机跟随实体的效果
+         */
+        function traceHandler() {
+            // 获取实体在当前时间点的位置坐标（世界坐标系）
+            let center = entity.position.getValue(
+                viewer.clock.currentTime
+            )
+            
+            // 获取实体在当前时间点的方向四元数（表示实体的旋转状态）
+            let orientation = entity.orientation.getValue(
+                viewer.clock.currentTime
+            )
+            
+            // 创建从世界坐标系到实体本地坐标系的变换矩阵
+            // eastNorthUpToFixedFrame 创建一个以实体当前位置为中心的本地坐标系
+            // 这个坐标系的特点是：X轴指向东方，Y轴指向北方，Z轴指向天空
+            let transform = Cesium.Transforms.eastNorthUpToFixedFrame(center)
+            
+            // 将实体的方向四元数转换为旋转矩阵，并与位置信息组合
+            // Matrix3.fromQuaternion(orientation): 将四元数转换为3x3旋转矩阵
+            // Matrix4.fromRotationTranslation(): 将旋转矩阵和位置向量组合成4x4变换矩阵
+            // 这样得到的transform矩阵包含了实体的位置和方向信息
+            transform = Cesium.Matrix4.fromRotationTranslation(Cesium.Matrix3.fromQuaternion(orientation), center)
+            
+            // 设置相机相对于实体的观察位置
+            // lookAtTransform 让相机以指定的transform矩阵为参考系进行观察
+            // Cartesian3(-20, 0, 30) 表示相机相对于实体的偏移量：
+            // -20: 在实体的左侧20个单位
+            // 0: 与实体在同一水平面
+            // 30: 在实体上方30个单位
+            // 这样就实现了第一人称视角，相机始终跟随实体的运动
+            viewer.camera.lookAtTransform(transform, new Cesium.Cartesian3(-20, 0, 30))
+        }
+    </script>
+</body>
+
+</html>
