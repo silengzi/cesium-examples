@@ -262,30 +262,30 @@ var exampleConfig = {
                 //     thumbnail: "1.10、反选遮罩.jpg",
                 //     fileName: "1.10、反选遮罩"
                 // },
-                // {
-                //     name: "1.11、加载shp",
-                //     name_en: "1.11、加载shp",
-                //     thumbnail: "1.11、加载shp.jpg",
-                //     fileName: "1.11、加载shp"
-                // },
-                // {
-                //     name: "1.12、加载mvt",
-                //     name_en: "1.12、加载mvt",
-                //     thumbnail: "1.12、加载mvt.jpg",
-                //     fileName: "1.12、加载mvt"
-                // },
-                // {
-                //     name: "1.13、地表透明度",
-                //     name_en: "1.13、地表透明度",
-                //     thumbnail: "1.13、地表透明度.jpg",
-                //     fileName: "1.13、地表透明度"
-                // },
-                // {
-                //     name: "1.14、倾斜摄影单体",
-                //     name_en: "1.14、倾斜摄影单体",
-                //     thumbnail: "1.14、倾斜摄影单体.jpg",
-                //     fileName: "1.14、倾斜摄影单体"
-                // },
+                {
+                    name: "1.11、加载shp",
+                    name_en: "1.11、加载shp",
+                    thumbnail: "1.11、加载shp.jpg",
+                    fileName: "1.11、加载shp"
+                },
+                {
+                    name: "1.12、加载mvt",
+                    name_en: "1.12、加载mvt",
+                    thumbnail: "1.12、加载mvt.jpg",
+                    fileName: "1.12、加载mvt"
+                },
+                {
+                    name: "1.13、地表透明度",
+                    name_en: "1.13、地表透明度",
+                    thumbnail: "1.13、地表透明度.jpg",
+                    fileName: "1.13、地表透明度"
+                },
+                {
+                    name: "1.14、倾斜摄影单体",
+                    name_en: "1.14、倾斜摄影单体",
+                    thumbnail: "1.14、倾斜摄影单体.jpg",
+                    fileName: "1.14、倾斜摄影单体"
+                },
                 {
                     name: "1.15、罗盘、导航条",
                     name_en: "1.15、罗盘、导航条",
