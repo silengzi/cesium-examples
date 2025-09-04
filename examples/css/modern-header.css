@@ -1,0 +1,487 @@
+/* 现代化 Header 样式优化 */
+/* 基于原有样式进行现代化改造 */
+
+/* ===== 基础 Header 样式 ===== */
+.main-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1030;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 深色主题支持 */
+.dark .main-header {
+    background: rgba(30, 30, 30, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== 导航栏样式 ===== */
+.main-header .navbar {
+    min-height: 80px;
+    padding: 0 24px;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+/* ===== Logo 和标题区域 ===== */
+.navbar-header {
+    margin: 0 32px;
+    float: left;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.navbar-brand {
+    height: 80px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+}
+
+#logo {
+    width: 120px;
+    height: 56px;
+    margin: 12px 0;
+    display: inline-block;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+}
+
+.navbar .project-title {
+    text-decoration: none;
+    vertical-align: middle;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#title {
+    font-size: 20px;
+    color: var(--text-color, #2c3e50);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.pre-release {
+    font-size: 12px;
+    color: var(--text-color-third, #6c757d);
+    vertical-align: super;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+}
+
+/* ===== 导航菜单样式 ===== */
+.main-header .navbar-custom-menu {
+    float: right;
+    padding: 0;
+    margin-right: 24px;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navbar-nav > li {
+    position: relative;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav > li > a {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    color: var(--text-color, #2c3e50);
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar-nav > li > a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.navbar-nav > li > a:hover {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.navbar-nav > li > a:hover::before {
+    opacity: 1;
+}
+
+/* 活跃状态 */
+.skin-blue .main-header .navbar .nav > .active > a,
+.skin-blue .main-header .navbar .nav > li > a:focus {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* ===== 下拉菜单样式 ===== */
+.dropdown .dropdown-menu {
+    min-width: 200px;
+    padding: 12px 0;
+    margin-top: 8px;
+    border: none;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .dropdown .dropdown-menu {
+    background: rgba(30, 30, 30, 0.98);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown:hover .dropdown-menu {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown .dropdown-menu > li {
+    margin: 4px 12px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dropdown .dropdown-menu > li > a {
+    color: var(--text-color, #2c3e50);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 16px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    display: block;
+}
+
+.dropdown .dropdown-menu > li > a:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    transform: translateX(4px);
+}
+
+/* ===== 右侧工具栏 ===== */
+.navbar-rightbar {
+    float: right;
+    margin-right: 32px;
+    font-size: 16px;
+}
+
+.navbar-rightbar > ul {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navbar-rightbar > ul > li {
+    height: 80px;
+    padding: 24px 16px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-rightbar > ul > li > a {
+    display: flex;
+    align-items: center;
+    line-height: 24px;
+    height: 24px;
+    font-weight: 500;
+    color: var(--text-color, #2c3e50);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar-rightbar > ul > li > a:hover {
+    background: rgba(102, 126, 234, 0.1);
+    color: var(--active-color, #667eea);
+    transform: scale(1.05);
+}
+
+/* ===== 移动端菜单按钮 ===== */
+.navbar-toggle {
+    padding: 0;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggle:hover {
+    background: rgba(102, 126, 234, 0.1);
+}
+
+.navbar-toggle > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggle > a::after {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background: url(../img/svg/navheadermenu.svg) no-repeat center center / contain;
+    content: '';
+    transition: all 0.3s ease;
+}
+
+.navbar-toggle > a[aria-expanded="true"]::after {
+    background: url(../img/svg/navheadermenuclose.svg) no-repeat center center / contain;
+    transform: rotate(180deg);
+}
+
+/* ===== 动画效果 ===== */
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.main-header {
+    animation: slideInDown 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== 响应式设计 ===== */
+@media screen and (max-width: 1200px) {
+    .navbar-header {
+        margin: 0 24px;
+    }
+    
+    .navbar-rightbar {
+        margin-right: 24px;
+    }
+    
+    .main-header .navbar {
+        padding: 0 16px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .main-header .navbar {
+        min-height: 72px;
+        padding: 0 16px;
+    }
+    
+    .navbar-header {
+        margin: 0 16px;
+    }
+    
+    .navbar-nav > li {
+        height: 72px;
+    }
+    
+    .navbar-nav > li > a {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+    
+    .navbar-rightbar > ul > li {
+        height: 72px;
+        padding: 20px 12px;
+    }
+    
+    #logo {
+        width: 100px;
+        height: 48px;
+    }
+    
+    #title {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main-header .navbar {
+        min-height: 64px;
+        padding: 0 12px;
+    }
+    
+    .navbar-header {
+        margin: 0 12px;
+    }
+    
+    .navbar-nav > li {
+        height: 64px;
+    }
+    
+    .navbar-nav > li > a {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+    
+    .navbar-rightbar > ul > li {
+        height: 64px;
+        padding: 16px 8px;
+    }
+    
+    #logo {
+        width: 80px;
+        height: 40px;
+    }
+    
+    #title {
+        font-size: 16px;
+    }
+    
+    .pre-release {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .main-header .navbar {
+        min-height: 56px;
+        padding: 0 8px;
+    }
+    
+    .navbar-header {
+        margin: 0 8px;
+    }
+    
+    .navbar-nav > li {
+        height: 56px;
+    }
+    
+    .navbar-nav > li > a {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+    
+    .navbar-rightbar > ul > li {
+        height: 56px;
+        padding: 12px 6px;
+    }
+    
+    #logo {
+        width: 60px;
+        height: 32px;
+    }
+    
+    #title {
+        font-size: 14px;
+    }
+    
+    .pre-release {
+        font-size: 8px;
+    }
+}
+
+/* ===== 滚动时的样式变化 ===== */
+.main-header.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
+}
+
+.dark .main-header.scrolled {
+    background: rgba(30, 30, 30, 0.98);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== 特殊效果 ===== */
+.navbar-nav > li > a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-nav > li > a:hover::after {
+    width: 80%;
+}
+
+/* ===== 加载动画 ===== */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.navbar-nav > li > a.loading {
+    animation: pulse 1.5s infinite;
+}
+
+/* ===== 深色主题优化 ===== */
+.dark .navbar-nav > li > a {
+    color: #e0e0e0;
+}
+
+.dark .navbar-nav > li > a:hover {
+    color: white;
+}
+
+.dark #title {
+    color: #e0e0e0;
+}
+
+.dark .navbar-rightbar > ul > li > a {
+    color: #e0e0e0;
+}
+
+.dark .navbar-rightbar > ul > li > a:hover {
+    color: #667eea;
+}
