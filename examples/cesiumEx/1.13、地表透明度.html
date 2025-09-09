@@ -1,0 +1,125 @@
+<!--********************************************************************
+* by jiawanlong
+*********************************************************************-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./../../libs/cesium/Cesium1.72/Widgets/widgets.css">
+    <script type="text/javascript" src="./../../libs/cesium/Cesium1.72/Cesium.js"></script>
+    <script src="./env.js"></script>
+    <script src="./jquery-1.8.3.min.js"></script>
+    <style>
+        input {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+    </style>
+</head>
+
+<body style="margin: 0; overflow: hidden; background: #fff; width: 100%; height: 100%; position: absolute; top: 0">
+    <div id="map" style="margin: 0 auto; width: 100%; height: 100%"></div>
+    <input type="range" min="0" id="inp" step="0.01" max="1" value="1">
+    <script type="text/javascript">
+
+        Cesium.Ion.defaultAccessToken = defaultAccessToken
+        const viewer = new Cesium.Viewer('map', {});
+        
+        // 开启帧率
+        viewer.scene.debugShowFramesPerSecond = true;
+
+
+        class Undergroundmodes {
+            constructor(option) {
+                this.viewer = viewer
+                this.options = option
+                this.config = {
+                    enableCollisionDetection: false,
+                    NearFarScalar: new Cesium.NearFarScalar(500.0, 0.0, 1000.0, 1.0),
+                    translucencyEnabled: true,
+                    fadeByDistance: true,
+                    alpha: 0.1
+                }
+                this.config = Object.assign(this.config, this.options)
+                this.config.ecd = this.viewer.scene.screenSpaceCameraController.enableCollisionDetection;
+                // 透明度
+                var alpha = Number(this.options.alpha || 0.5)
+                alpha = !isNaN(alpha) ? alpha : 1.0
+                alpha = Cesium.Math.clamp(alpha, 0.0, 1.0)
+                this.config.alpha = alpha
+                this.viewer.scene.screenSpaceCameraController.enableCollisionDetection = this.config.enableCollisionDetection
+                // 底下模式展示的相机范围
+                this.viewer.scene.globe.translucency.frontFaceAlphaByDistance = this.config.NearFarScalar
+                this.update()
+            }
+
+            update() {
+                // 半透明启用
+                this.viewer.scene.globe.translucency.enabled = this.config.translucencyEnabled
+                // 按距离淡入
+                this.viewer.scene.globe.translucency.frontFaceAlphaByDistance.nearValue = this.config.alpha
+                this.viewer.scene.globe.translucency.frontFaceAlphaByDistance.farValue = this.config.fadeByDistance ? 1.0 : this.config.alpha
+            }
+
+            // 改变半透明启用
+            changeTranslucencyEnabled(enabled) {
+                if(enabled != undefined) {
+                    this.config.translucencyEnabled = enabled
+                    this.update()
+                }
+            }
+
+            // 改变是否按距离淡入
+            changeFadeByDistance(fadeByDistance) {
+                if(fadeByDistance != undefined) {
+                    this.config.fadeByDistance = fadeByDistance
+                    this.update()
+                }
+            }
+
+            // 改变地表透明度
+            changeAlpha(alpha) {
+                if(alpha != undefined) {
+                    this.config.alpha = alpha
+                    this.update()
+                }
+            }
+        }
+
+        var undergroundmode = new Undergroundmodes({
+            viewer
+        })
+
+        // 加载单张图片
+        var imageryProvider = new Cesium.SingleTileImageryProvider({
+            "url": "./word.jpg",
+            id: '1'
+        })
+        viewer.imageryLayers.addImageryProvider(imageryProvider)
+
+        $("#inp").change(() => {
+            let v = Number($("#inp").val());
+
+            // 1. 地球球体
+            // 改变半透明启用
+            // undergroundmode.changeTranslucencyEnabled(true)
+            // 改变是否按距离淡入
+            // undergroundmode.changgeFadeByDistance(true)
+            // 改变地表透明度
+            undergroundmode.changeAlpha(v)
+
+            // 2. 影像图
+            // 先把所有的影像图层的透明度设置为0
+            viewer.imageryLayers._layers.forEach(layer => {
+                layer.alpha = v
+            })
+
+            // 3. 底色
+            viewer.scene.globe.baseColor = new Cesium.Color(0, 0, 0, 0)
+        })
+    </script>
+</body>
+
+</html>
