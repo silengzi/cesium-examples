@@ -21,6 +21,16 @@
         // 开启帧率
         viewer.scene.debugShowFramesPerSecond = true;
 
+        viewer.camera.setView({
+            destination: Cesium.Cartesian3.fromDegrees(110, 35, 10000000)
+        })
+
+        var tms = new Cesium.UrlTemplateImageryProvider({
+            credit: 'riv_m',
+            url: 'http://39.107.182.155:9000/tserver/wmts.ashx?r={y}&c={x}&l={z}&t=riv_m'
+        })
+        viewer.imageryLayers.addImageryProvider(tms)
+
         
     </script>
 </body>
