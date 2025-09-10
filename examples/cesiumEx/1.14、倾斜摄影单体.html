@@ -54,7 +54,7 @@
         //     var pick = viewer.scene.pickPosition(clickEvent.position);
         //     var pickEd = viewer.scene.pick(clickEvent.position);
         //     if (pickEd && pick) {
-        //         // console.log(pickEd)
+        //         console.log(pickEd)
         //         var r = 255;
         //         var g = 255;
         //         var b = 255;
@@ -77,28 +77,30 @@
 
         viewer.scene.postProcessStages.add(Cesium.PostProcessStageLibrary.createSilhouetteStage([silhouetteBlue, silhouetteGreen]))
 
-        viewer.sceneSpaceEventHandler.setInputAction(movement => {
-            var pickedFeature = viewer.scene.pick(movement.endPosition)
-            
-        })
+        //  movement.endPosition 与 movement.position 的区别：
+        // 1) movement.endPosition：仅在鼠标移动类事件（MOUSE_MOVE）中提供，表示“当前这一帧鼠标移动结束时”的屏幕坐标（像素点）。
+        //    适用于实时拾取/悬停高亮等连续跟随鼠标位置的逻辑。
+        // 2) movement.position：仅在点击类事件（LEFT_CLICK/RIGHT_CLICK/LEFT_DOUBLE_CLICK 等）中提供，表示“触发点击事件的屏幕坐标”（按下/抬起时刻）。
+        //    适用于点击选中、获取点击点位置/要素等一次性操作。
+        // 简记：移动用 endPosition（连续更新），点击用 position（触发时刻）。
+        viewer.screenSpaceEventHandler.setInputAction(movement => {
+            var pickedFeature = viewer.scene.pick(movement.endPosition) // 此处在 MOUSE_MOVE 中使用 endPosition
+            if(Cesium.defined(pickedFeature)) {
+                if(pickedFeature == silhouetteGreen.selected[0]) {
+                    silhouetteBlue.selected = []
+                } else {
+                    silhouetteBlue.selected = [pickedFeature]
+                }
+            }
+        }, Cesium.ScreenSpaceEventType.MOUSE_MOVE)
 
-        // viewer.screenSpaceEventHandler.setInputAction(function onMouseMove(movement) {
-        //     var pickedFeature = viewer.scene.pick(movement.endPosition);
-        //     if (Cesium.defined(pickedFeature)) {
-        //         if (pickedFeature == silhouetteGreen.selected[0]) {
-        //             silhouetteBlue.selected = [];
-        //         } else {
-        //             silhouetteBlue.selected = [pickedFeature];
-        //         }
+        // 点击事件中使用 movement.position：表示点击发生时的屏幕坐标
+        // viewer.screenSpaceEventHandler.setInputAction(movement => {
+        //     var pickedFeature = viewer.scene.pick(movement.position) // 此处在 LEFT_CLICK 中使用 position
+        //     if(Cesium.defined(pickedFeature)) {
+        //         silhouetteGreen.selected = [pickedFeature]
         //     }
-        // }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
-
-        // viewer.screenSpaceEventHandler.setInputAction(function leftClick(movement) {
-        //     var pickedFeature = viewer.scene.pick(movement.position);
-        //     if (Cesium.defined(pickedFeature)) {
-        //         silhouetteGreen.selected = [pickedFeature];
-        //     }
-        // }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+        // }, Cesium.ScreenSpaceEventType.LEFT_CLICK)
         /*鼠标移动选择结束*/
     </script>
 </body>
