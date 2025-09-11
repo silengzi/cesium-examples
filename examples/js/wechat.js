@@ -1,4 +1,3 @@
-/* by jiawanlong*/
 
 function createGalleryChart(example) {
   var target = 'editor-wechat.html',

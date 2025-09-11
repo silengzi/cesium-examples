@@ -1,4 +1,3 @@
-/* by jiawanlong*/
 //左侧层级是否包含示例
 var containExample = false;
 var sideBarIconConfig = sideBarIconConfig || {};

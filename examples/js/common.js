@@ -1,6 +1,3 @@
-/* by jiawanlong*/
-
-
     //目前只支持中英文
     window.initI18N= function (callback){
         var path = getCommonScriptPath();

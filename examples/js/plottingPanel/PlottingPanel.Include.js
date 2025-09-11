@@ -1,4 +1,3 @@
-/* by jiawanlong*/
 (function () {
     var r = new RegExp("(^|(.*?\\/))(PlottingPanel.Include\.js)(\\?|$)"),
         s = document.getElementsByTagName('script'), targetScript;

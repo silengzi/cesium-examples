@@ -1,4 +1,3 @@
-/* by jiawanlong*/
 var utils = {
     //设置语言。参数："zh_CN"，"en-US"
     setLanguage: null,

@@ -1,4 +1,3 @@
-/* by jiawanlong*/
 window.examplesResources = {
     "app": " iClient 9D",
     "nav": {

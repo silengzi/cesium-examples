@@ -1,4 +1,3 @@
-/* by jiawanlong*/
 var selectFeatures = [];
 //var groupIndex = 0;
 L.supermap.plotting.initStylePanel = function(div, serverUrl, editControl){

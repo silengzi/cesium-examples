@@ -1,4 +1,3 @@
-/* by jiawanlong*/
 L.supermap.plotting.initSMLInfosPanel = function(div, smlInfos, clickTreeNode){
     var smlInfosPanel = document.getElementById(div);
 

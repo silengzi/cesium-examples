@@ -1,6 +1,3 @@
-/* by jiawanlong*/
-
-
 var identification = {
     name: "Leaflet"
 };
@@ -358,336 +355,337 @@ var exampleConfig = {
             },
         }
     },
-    // "iPortal": {
-    //     name: "2、图层",
-    //     name_en: "la32yer",
-    //     content: {
-    //         "maxa2122xsap1": {
-    //             name: "2.1、影像",
-    //             name_en: "2.1、影像",
-    //             content: [
-    //                 {
-    //                     name: "2.1.0、单张图片",
-    //                     name_en: "2.1.0、单张图片",
-    //                     thumbnail: "2.1.0、单张图片.jpg",
-    //                     fileName: "2.1.0、单张图片"
-    //                 }, {
-    //                     name: "2.1.1、单张图片",
-    //                     name_en: "2.1.1、单张图片",
-    //                     thumbnail: "2.1.1、单张图片.jpg",
-    //                     fileName: "2.1.1、单张图片"
-    //                 },
-    //                 {
-    //                     name: "2.1.2、xyz服务",
-    //                     name_en: "2.1.2、xyz服务",
-    //                     thumbnail: "2.1.2、xyz服务.jpg",
-    //                     fileName: "2.1.2、xyz服务"
-    //                 },
-    //                 {
-    //                     name: "2.1.3、tms服务",
-    //                     name_en: "2.1.3、tms服务",
-    //                     thumbnail: "2.1.3、tms服务.jpg",
-    //                     fileName: "2.1.3、tms服务"
-    //                 },
-    //                 {
-    //                     name: "2.1.4、wms服务",
-    //                     name_en: "2.1.4、wms服务",
-    //                     thumbnail: "2.1.4、wms服务.jpg",
-    //                     fileName: "2.1.4、wms服务"
-    //                 },
-    //                 {
-    //                     name: "2.1.5、wmts服务",
-    //                     name_en: "2.1.5、wmts服务",
-    //                     thumbnail: "2.1.5、wmts服务.jpg",
-    //                     fileName: "2.1.5、wmts服务"
-    //                 },
-    //                 {
-    //                     name: "2.1.6、天地图服务",
-    //                     name_en: "2.1.6、天地图服务",
-    //                     thumbnail: "2.1.6、天地图服务.jpg",
-    //                     fileName: "2.1.6、天地图服务"
-    //                 },
-    //                 {
-    //                     name: "2.1.7、4490服务",
-    //                     name_en: "2.1.7、4490服务",
-    //                     thumbnail: "2.1.7、4490服务.jpg",
-    //                     fileName: "2.1.7、4490服务"
-    //                 },
-    //                 {
-    //                     name: "2.1.8、4490服务2",
-    //                     name_en: "2.1.8、4490服务2",
-    //                     thumbnail: "2.1.8、4490服务2.jpg",
-    //                     fileName: "2.1.8、4490服务2"
-    //                 },
-    //                 {
-    //                     name: "2.1.9、影像操作",
-    //                     name_en: "2.1.9、影像操作",
-    //                     thumbnail: "2.1.9、影像操作.jpg",
-    //                     fileName: "2.1.9、影像操作"
-    //                 },
-    //                 {
-    //                     name: "2.1.10、加载shp",
-    //                     name_en: "2.1.10、加载shp",
-    //                     thumbnail: "1.11、加载shp.jpg",
-    //                     fileName: "1.11、加载shp"
-    //                 },
-    //                 {
-    //                     name: "2.1.11、加载mvt",
-    //                     name_en: "2.1.11、加载mvt",
-    //                     thumbnail: "1.12、加载mvt.jpg",
-    //                     fileName: "1.12、加载mvt"
-    //                 },
-    //                 {
-    //                     name: "2.1.12、高德、百度等并纠偏",
-    //                     name_en: "2.1.12、高德、百度等并纠偏",
-    //                     thumbnail: "2.1.12、高德、百度等并纠偏.jpg",
-    //                     fileName: "2.1.12、高德、百度等并纠偏"
-    //                 },
-    //                 {
-    //                     name: "2.1.13、wkt",
-    //                     name_en: "2.1.13、wkt",
-    //                     thumbnail: "2.1.13、wkt.jpg",
-    //                     fileName: "2.1.13、wkt"
-    //                 },
-    //                 {
-    //                     name: "2.1.14、shp",
-    //                     name_en: "2.1.14、shp",
-    //                     thumbnail: "2.1.14、shp.jpg",
-    //                     fileName: "2.1.14、shp"
-    //                 },
-    //                 {
-    //                     name: "2.1.15、动态时序图",
-    //                     name_en: "2.1.15、动态时序图",
-    //                     thumbnail: "2.1.15、动态时序图.jpg",
-    //                     fileName: "2.1.15、动态时序图"
-    //                 },
-    //                 {
-    //                     name: "2.1.16、mapbox底图",
-    //                     name_en: "2.1.16、mapbox底图",
-    //                     thumbnail: "2.1.16、mapbox底图.jpg",
-    //                     fileName: "2.1.16、mapbox底图"
-    //                 },
-    //             ]
-    //         },
-    //         "masas56sp2": {
-    //             name: "2.2、地形",
-    //             name_en: "2.2、地形",
-    //             content: [
-    //                 {
-    //                     name: "2.2.1、离线地形",
-    //                     name_en: "2.2.1、离线地形",
-    //                     thumbnail: "2.2.1、离线地形.jpg",
-    //                     fileName: "2.2.1、离线地形"
-    //                 },
-    //                 {
-    //                     name: "2.2.2、默认地形",
-    //                     name_en: "2.2.2、默认地形",
-    //                     thumbnail: "2.2.2、默认地形.jpg",
-    //                     fileName: "2.2.2、默认地形"
-    //                 },
-    //                 {
-    //                     name: "2.2.3、地形夸张",
-    //                     name_en: "2.2.3、地形夸张",
-    //                     thumbnail: "2.2.3、地形夸张.jpg",
-    //                     fileName: "2.2.3、地形夸张"
-    //                 },
-    //             ]
-    //         },
-    //         "mapfdf999sa3": {
-    //             name: "2.3、矢量",
-    //             name_en: "2.3、矢量",
-    //             content: [
-    //                 {
-    //                     name: "2.3.1、entity点",
-    //                     name_en: "2.3.1、entity点",
-    //                     thumbnail: "2.3.1、entity点.jpg",
-    //                     fileName: "2.3.1、entity点"
-    //                 },
-    //                 {
-    //                     name: "2.3.2、entity线",
-    //                     name_en: "2.3.2、entity线",
-    //                     thumbnail: "2.3.2、entity线.jpg",
-    //                     fileName: "2.3.2、entity线"
-    //                 },
-    //                 {
-    //                     name: "2.3.3、entity面",
-    //                     name_en: "2.3.3、entity面",
-    //                     thumbnail: "2.3.3、entity面.jpg",
-    //                     fileName: "2.3.3、entity面"
-    //                 },
-    //                 {
-    //                     name: "2.3.4、图标",
-    //                     name_en: "2.3.4、图标",
-    //                     thumbnail: "2.3.4、图标.jpg",
-    //                     fileName: "2.3.4、图标"
-    //                 },
-    //                 {
-    //                     name: "2.3.5、海量图标",
-    //                     name_en: "2.3.5、海量图标",
-    //                     thumbnail: "2.3.5、海量图标.jpg",
-    //                     fileName: "2.3.5、海量图标"
-    //                 },
-    //                 {
-    //                     name: "2.3.6、popup",
-    //                     name_en: "2.3.6、popup",
-    //                     thumbnail: "2.3.6、popup.jpg",
-    //                     fileName: "2.3.6、popup"
-    //                 },
-    //                 {
-    //                     name: "2.3.7、geojson",
-    //                     name_en: "2.3.7、geojson",
-    //                     thumbnail: "2.3.7、geojson.jpg",
-    //                     fileName: "2.3.7、geojson"
-    //                 },
-    //                 {
-    //                     name: "2.3.8、Primitive",
-    //                     name_en: "2.3.8、Primitive",
-    //                     thumbnail: "2.3.8、Primitive.jpg",
-    //                     fileName: "2.3.8、Primitive"
-    //                 },
-    //                 {
-    //                     name: "2.3.9、AllPrimitive",
-    //                     name_en: "2.3.9、AllPrimitive",
-    //                     thumbnail: "2.3.9、AllPrimitive.jpg",
-    //                     fileName: "2.3.9、AllPrimitive"
-    //                 },
-    //                 {
-    //                     name: "2.3.10、entityCollection",
-    //                     name_en: "2.3.10、entityCollection",
-    //                     thumbnail: "2.3.10、entityCollection.jpg",
-    //                     fileName: "2.3.10、entityCollection"
-    //                 },
-    //                 {
-    //                     name: "2.3.11、entity操作",
-    //                     name_en: "2.3.11、entity操作",
-    //                     thumbnail: "2.3.11、entity操作.jpg",
-    //                     fileName: "2.3.11、entity操作"
-    //                 },
-    //                 {
-    //                     name: "2.3.12、气泡窗口",
-    //                     name_en: "2.3.12、气泡窗口",
-    //                     thumbnail: "1.9、气泡窗口.jpg",
-    //                     fileName: "1.9、气泡窗口"
-    //                 },
-    //                 {
-    //                     name: "2.3.13、气泡弹窗",
-    //                     name_en: "2.3.13、气泡弹窗",
-    //                     thumbnail: "2.3.13、气泡弹窗.jpg",
-    //                     fileName: "2.3.13、气泡弹窗"
-    //                 },
-    //                 {
-    //                     name: "2.3.14、道路",
-    //                     name_en: "2.3.14、道路",
-    //                     thumbnail: "2.3.14、道路.jpg",
-    //                     fileName: "2.3.14、道路"
-    //                 },
-    //                 {
-    //                     name: "2.3.15、svg",
-    //                     name_en: "2.3.15、svg",
-    //                     thumbnail: "2.3.15、svg.jpg",
-    //                     fileName: "2.3.15、svg"
-    //                 },
-    //                 {
-    //                     name: "2.3.16、gif",
-    //                     name_en: "2.3.16、gif",
-    //                     thumbnail: "2.3.16、gif.jpg",
-    //                     fileName: "2.3.16、gif"
-    //                 },
-    //                 {
-    //                     name: "2.3.17、聚合",
-    //                     name_en: "2.3.17、聚合",
-    //                     thumbnail: "2.3.17、聚合.jpg",
-    //                     fileName: "2.3.17、聚合"
-    //                 },
-    //                 {
-    //                     name: "2.3.18、czml",
-    //                     name_en: "2.3.18、czml",
-    //                     thumbnail: "2.3.18、czml.jpg",
-    //                     fileName: "2.3.18、czml"
-    //                 },
-    //                 {
-    //                     name: "2.3.19、字体图标",
-    //                     name_en: "2.3.19、字体图标",
-    //                     thumbnail: "2.3.19、字体图标.jpg",
-    //                     fileName: "2.3.19、字体图标"
-    //                 },
-    //                 {
-    //                     name: "2.3.20、字体图标缩放",
-    //                     name_en: "2.3.20、字体图标缩放",
-    //                     thumbnail: "2.3.20、字体图标缩放.jpg",
-    //                     fileName: "2.3.20、字体图标缩放"
-    //                 },
-    //                 {
-    //                     name: "2.3.21、各种entity",
-    //                     name_en: "2.3.21、各种entity",
-    //                     thumbnail: "2.3.21、各种entity.jpg",
-    //                     fileName: "2.3.21、各种entity"
-    //                 },
-    //                 {
-    //                     name: "2.3.22、切换2维bug",
-    //                     name_en: "2.3.22、切换2维bug",
-    //                     thumbnail: "2.3.22、切换2维bug.jpg",
-    //                     fileName: "2.3.22、切换2维bug"
-    //                 },
-    //             ]
-    //         },
-    //         "mapfd004ff4": {
-    //             name: "2.4、模型",
-    //             name_en: "2.4、模型",
-    //             content: [
-    //                 {
-    //                     name: "2.4.1、加载模型",
-    //                     name_en: "2.4.1、加载模型",
-    //                     thumbnail: "2.4.1、加载模型.jpg",
-    //                     fileName: "2.4.1、加载模型"
-    //                 },
-    //                 {
-    //                     name: "2.4.2、primitive加载模型",
-    //                     name_en: "2.4.2、primitive加载模型",
-    //                     thumbnail: "2.4.2、primitive加载模型.jpg",
-    //                     fileName: "2.4.2、primitive加载模型"
-    //                 },
-    //                 {
-    //                     name: "2.4.3、primitive加载大量模型",
-    //                     name_en: "2.4.3、primitive加载大量模型",
-    //                     thumbnail: "2.4.3、primitive加载大量模型.jpg",
-    //                     fileName: "2.4.3、primitive加载大量模型"
-    //                 },
-    //                 {
-    //                     name: "2.4.4、模型运动",
-    //                     name_en: "2.4.4、模型运动",
-    //                     thumbnail: "1.8、时间运动.jpg",
-    //                     fileName: "1.8、时间运动"
-    //                 },
-    //                 {
-    //                     name: "2.4.5、模型插值运动",
-    //                     name_en: "2.4.5、模型插值运动",
-    //                     thumbnail: "2.4.5、模型插值运动.jpg",
-    //                     fileName: "2.4.5、模型插值运动"
-    //                 },
-    //                 {
-    //                     name: "2.4.6、点击获取子节点",
-    //                     name_en: "2.4.6、点击获取子节点",
-    //                     thumbnail: "2.4.6、点击获取子节点.jpg",
-    //                     fileName: "2.4.6、点击获取子节点"
-    //                 },
-    //                 {
-    //                     name: "2.4.7、人工模型",
-    //                     name_en: "2.4.7、人工模型",
-    //                     thumbnail: "2.4.7、人工模型.jpg",
-    //                     fileName: "2.4.7、人工模型"
-    //                 },
-    //                 {
-    //                     name: "2.4.8、风力发电机",
-    //                     name_en: "2.4.8、风力发电机",
-    //                     thumbnail: "2.4.8、风力发电机.jpg",
-    //                     fileName: "2.4.8、风力发电机"
-    //                 },
+    "iPortal": {
+        name: "2、图层",
+        name_en: "la32yer",
+        content: {
+            "maxa2122xsap1": {
+                name: "2.1、影像",
+                name_en: "2.1、影像",
+                content: [
+                    {
+                        name: "2.1.0、单张图片",
+                        name_en: "2.1.0、单张图片",
+                        thumbnail: "2.1.0、单张图片.jpg",
+                        fileName: "2.1.0、单张图片"
+                    },
+                    // {
+                    //     name: "2.1.1、单张图片",
+                    //     name_en: "2.1.1、单张图片",
+                    //     thumbnail: "2.1.1、单张图片.jpg",
+                    //     fileName: "2.1.1、单张图片"
+                    // },
+                    {
+                        name: "2.1.2、xyz服务",
+                        name_en: "2.1.2、xyz服务",
+                        thumbnail: "2.1.2、xyz服务.jpg",
+                        fileName: "2.1.2、xyz服务"
+                    },
+                    {
+                        name: "2.1.3、tms服务",
+                        name_en: "2.1.3、tms服务",
+                        thumbnail: "2.1.3、tms服务.jpg",
+                        fileName: "2.1.3、tms服务"
+                    },
+                    {
+                        name: "2.1.4、wms服务",
+                        name_en: "2.1.4、wms服务",
+                        thumbnail: "2.1.4、wms服务.jpg",
+                        fileName: "2.1.4、wms服务"
+                    },
+                    {
+                        name: "2.1.5、wmts服务",
+                        name_en: "2.1.5、wmts服务",
+                        thumbnail: "2.1.5、wmts服务.jpg",
+                        fileName: "2.1.5、wmts服务"
+                    },
+                    {
+                        name: "2.1.6、天地图服务",
+                        name_en: "2.1.6、天地图服务",
+                        thumbnail: "2.1.6、天地图服务.jpg",
+                        fileName: "2.1.6、天地图服务"
+                    },
+                    // {
+                    //     name: "2.1.7、4490服务",
+                    //     name_en: "2.1.7、4490服务",
+                    //     thumbnail: "2.1.7、4490服务.jpg",
+                    //     fileName: "2.1.7、4490服务"
+                    // },
+                    // {
+                    //     name: "2.1.8、4490服务2",
+                    //     name_en: "2.1.8、4490服务2",
+                    //     thumbnail: "2.1.8、4490服务2.jpg",
+                    //     fileName: "2.1.8、4490服务2"
+                    // },
+                    // {
+                    //     name: "2.1.9、影像操作",
+                    //     name_en: "2.1.9、影像操作",
+                    //     thumbnail: "2.1.9、影像操作.jpg",
+                    //     fileName: "2.1.9、影像操作"
+                    // },
+                    // {
+                    //     name: "2.1.10、加载shp",
+                    //     name_en: "2.1.10、加载shp",
+                    //     thumbnail: "1.11、加载shp.jpg",
+                    //     fileName: "1.11、加载shp"
+                    // },
+                    // {
+                    //     name: "2.1.11、加载mvt",
+                    //     name_en: "2.1.11、加载mvt",
+                    //     thumbnail: "1.12、加载mvt.jpg",
+                    //     fileName: "1.12、加载mvt"
+                    // },
+                    // {
+                    //     name: "2.1.12、高德、百度等并纠偏",
+                    //     name_en: "2.1.12、高德、百度等并纠偏",
+                    //     thumbnail: "2.1.12、高德、百度等并纠偏.jpg",
+                    //     fileName: "2.1.12、高德、百度等并纠偏"
+                    // },
+                    // {
+                    //     name: "2.1.13、wkt",
+                    //     name_en: "2.1.13、wkt",
+                    //     thumbnail: "2.1.13、wkt.jpg",
+                    //     fileName: "2.1.13、wkt"
+                    // },
+                    // {
+                    //     name: "2.1.14、shp",
+                    //     name_en: "2.1.14、shp",
+                    //     thumbnail: "2.1.14、shp.jpg",
+                    //     fileName: "2.1.14、shp"
+                    // },
+                    // {
+                    //     name: "2.1.15、动态时序图",
+                    //     name_en: "2.1.15、动态时序图",
+                    //     thumbnail: "2.1.15、动态时序图.jpg",
+                    //     fileName: "2.1.15、动态时序图"
+                    // },
+                    // {
+                    //     name: "2.1.16、mapbox底图",
+                    //     name_en: "2.1.16、mapbox底图",
+                    //     thumbnail: "2.1.16、mapbox底图.jpg",
+                    //     fileName: "2.1.16、mapbox底图"
+                    // },
+                ]
+            },
+            // "masas56sp2": {
+            //     name: "2.2、地形",
+            //     name_en: "2.2、地形",
+            //     content: [
+            //         {
+            //             name: "2.2.1、离线地形",
+            //             name_en: "2.2.1、离线地形",
+            //             thumbnail: "2.2.1、离线地形.jpg",
+            //             fileName: "2.2.1、离线地形"
+            //         },
+            //         {
+            //             name: "2.2.2、默认地形",
+            //             name_en: "2.2.2、默认地形",
+            //             thumbnail: "2.2.2、默认地形.jpg",
+            //             fileName: "2.2.2、默认地形"
+            //         },
+            //         {
+            //             name: "2.2.3、地形夸张",
+            //             name_en: "2.2.3、地形夸张",
+            //             thumbnail: "2.2.3、地形夸张.jpg",
+            //             fileName: "2.2.3、地形夸张"
+            //         },
+            //     ]
+            // },
+            // "mapfdf999sa3": {
+            //     name: "2.3、矢量",
+            //     name_en: "2.3、矢量",
+            //     content: [
+            //         {
+            //             name: "2.3.1、entity点",
+            //             name_en: "2.3.1、entity点",
+            //             thumbnail: "2.3.1、entity点.jpg",
+            //             fileName: "2.3.1、entity点"
+            //         },
+            //         {
+            //             name: "2.3.2、entity线",
+            //             name_en: "2.3.2、entity线",
+            //             thumbnail: "2.3.2、entity线.jpg",
+            //             fileName: "2.3.2、entity线"
+            //         },
+            //         {
+            //             name: "2.3.3、entity面",
+            //             name_en: "2.3.3、entity面",
+            //             thumbnail: "2.3.3、entity面.jpg",
+            //             fileName: "2.3.3、entity面"
+            //         },
+            //         {
+            //             name: "2.3.4、图标",
+            //             name_en: "2.3.4、图标",
+            //             thumbnail: "2.3.4、图标.jpg",
+            //             fileName: "2.3.4、图标"
+            //         },
+            //         {
+            //             name: "2.3.5、海量图标",
+            //             name_en: "2.3.5、海量图标",
+            //             thumbnail: "2.3.5、海量图标.jpg",
+            //             fileName: "2.3.5、海量图标"
+            //         },
+            //         {
+            //             name: "2.3.6、popup",
+            //             name_en: "2.3.6、popup",
+            //             thumbnail: "2.3.6、popup.jpg",
+            //             fileName: "2.3.6、popup"
+            //         },
+            //         {
+            //             name: "2.3.7、geojson",
+            //             name_en: "2.3.7、geojson",
+            //             thumbnail: "2.3.7、geojson.jpg",
+            //             fileName: "2.3.7、geojson"
+            //         },
+            //         {
+            //             name: "2.3.8、Primitive",
+            //             name_en: "2.3.8、Primitive",
+            //             thumbnail: "2.3.8、Primitive.jpg",
+            //             fileName: "2.3.8、Primitive"
+            //         },
+            //         {
+            //             name: "2.3.9、AllPrimitive",
+            //             name_en: "2.3.9、AllPrimitive",
+            //             thumbnail: "2.3.9、AllPrimitive.jpg",
+            //             fileName: "2.3.9、AllPrimitive"
+            //         },
+            //         {
+            //             name: "2.3.10、entityCollection",
+            //             name_en: "2.3.10、entityCollection",
+            //             thumbnail: "2.3.10、entityCollection.jpg",
+            //             fileName: "2.3.10、entityCollection"
+            //         },
+            //         {
+            //             name: "2.3.11、entity操作",
+            //             name_en: "2.3.11、entity操作",
+            //             thumbnail: "2.3.11、entity操作.jpg",
+            //             fileName: "2.3.11、entity操作"
+            //         },
+            //         {
+            //             name: "2.3.12、气泡窗口",
+            //             name_en: "2.3.12、气泡窗口",
+            //             thumbnail: "1.9、气泡窗口.jpg",
+            //             fileName: "1.9、气泡窗口"
+            //         },
+            //         {
+            //             name: "2.3.13、气泡弹窗",
+            //             name_en: "2.3.13、气泡弹窗",
+            //             thumbnail: "2.3.13、气泡弹窗.jpg",
+            //             fileName: "2.3.13、气泡弹窗"
+            //         },
+            //         {
+            //             name: "2.3.14、道路",
+            //             name_en: "2.3.14、道路",
+            //             thumbnail: "2.3.14、道路.jpg",
+            //             fileName: "2.3.14、道路"
+            //         },
+            //         {
+            //             name: "2.3.15、svg",
+            //             name_en: "2.3.15、svg",
+            //             thumbnail: "2.3.15、svg.jpg",
+            //             fileName: "2.3.15、svg"
+            //         },
+            //         {
+            //             name: "2.3.16、gif",
+            //             name_en: "2.3.16、gif",
+            //             thumbnail: "2.3.16、gif.jpg",
+            //             fileName: "2.3.16、gif"
+            //         },
+            //         {
+            //             name: "2.3.17、聚合",
+            //             name_en: "2.3.17、聚合",
+            //             thumbnail: "2.3.17、聚合.jpg",
+            //             fileName: "2.3.17、聚合"
+            //         },
+            //         {
+            //             name: "2.3.18、czml",
+            //             name_en: "2.3.18、czml",
+            //             thumbnail: "2.3.18、czml.jpg",
+            //             fileName: "2.3.18、czml"
+            //         },
+            //         {
+            //             name: "2.3.19、字体图标",
+            //             name_en: "2.3.19、字体图标",
+            //             thumbnail: "2.3.19、字体图标.jpg",
+            //             fileName: "2.3.19、字体图标"
+            //         },
+            //         {
+            //             name: "2.3.20、字体图标缩放",
+            //             name_en: "2.3.20、字体图标缩放",
+            //             thumbnail: "2.3.20、字体图标缩放.jpg",
+            //             fileName: "2.3.20、字体图标缩放"
+            //         },
+            //         {
+            //             name: "2.3.21、各种entity",
+            //             name_en: "2.3.21、各种entity",
+            //             thumbnail: "2.3.21、各种entity.jpg",
+            //             fileName: "2.3.21、各种entity"
+            //         },
+            //         {
+            //             name: "2.3.22、切换2维bug",
+            //             name_en: "2.3.22、切换2维bug",
+            //             thumbnail: "2.3.22、切换2维bug.jpg",
+            //             fileName: "2.3.22、切换2维bug"
+            //         },
+            //     ]
+            // },
+            // "mapfd004ff4": {
+            //     name: "2.4、模型",
+            //     name_en: "2.4、模型",
+            //     content: [
+            //         {
+            //             name: "2.4.1、加载模型",
+            //             name_en: "2.4.1、加载模型",
+            //             thumbnail: "2.4.1、加载模型.jpg",
+            //             fileName: "2.4.1、加载模型"
+            //         },
+            //         {
+            //             name: "2.4.2、primitive加载模型",
+            //             name_en: "2.4.2、primitive加载模型",
+            //             thumbnail: "2.4.2、primitive加载模型.jpg",
+            //             fileName: "2.4.2、primitive加载模型"
+            //         },
+            //         {
+            //             name: "2.4.3、primitive加载大量模型",
+            //             name_en: "2.4.3、primitive加载大量模型",
+            //             thumbnail: "2.4.3、primitive加载大量模型.jpg",
+            //             fileName: "2.4.3、primitive加载大量模型"
+            //         },
+            //         {
+            //             name: "2.4.4、模型运动",
+            //             name_en: "2.4.4、模型运动",
+            //             thumbnail: "1.8、时间运动.jpg",
+            //             fileName: "1.8、时间运动"
+            //         },
+            //         {
+            //             name: "2.4.5、模型插值运动",
+            //             name_en: "2.4.5、模型插值运动",
+            //             thumbnail: "2.4.5、模型插值运动.jpg",
+            //             fileName: "2.4.5、模型插值运动"
+            //         },
+            //         {
+            //             name: "2.4.6、点击获取子节点",
+            //             name_en: "2.4.6、点击获取子节点",
+            //             thumbnail: "2.4.6、点击获取子节点.jpg",
+            //             fileName: "2.4.6、点击获取子节点"
+            //         },
+            //         {
+            //             name: "2.4.7、人工模型",
+            //             name_en: "2.4.7、人工模型",
+            //             thumbnail: "2.4.7、人工模型.jpg",
+            //             fileName: "2.4.7、人工模型"
+            //         },
+            //         {
+            //             name: "2.4.8、风力发电机",
+            //             name_en: "2.4.8、风力发电机",
+            //             thumbnail: "2.4.8、风力发电机.jpg",
+            //             fileName: "2.4.8、风力发电机"
+            //         },
 
-    //             ]
-    //         },
-    //     }
-    // },
+            //     ]
+            // },
+        }
+    },
     // "Online": {
     //     name: "3、3Dtiles",
     //     name_en: "3、3Dtiles",

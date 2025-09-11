@@ -1,4 +1,3 @@
-/* by jiawanlong*/
 L.supermap.plotting.initPlotPanel = function(div, serverUrl, drawControl){
     var plotPanel = document.getElementById(div);
 

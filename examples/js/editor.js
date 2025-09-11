@@ -1,4 +1,3 @@
-/* by jiawanlong*/
 $(document).ready(function () {
     window.initI18N(function(){
     initPage();

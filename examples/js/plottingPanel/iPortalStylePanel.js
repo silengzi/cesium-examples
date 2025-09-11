@@ -1,4 +1,3 @@
-/* by jiawanlong*/
 var data;
 L.supermap.plotting.initIportalStylePanel = function(div, type, data, plotName){
     data = data;

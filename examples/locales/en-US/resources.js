@@ -1,4 +1,3 @@
-/* by jiawanlong*/
 window.examplesResources = {
     "app": "SuperMap iClient 9D",
     "nav": {

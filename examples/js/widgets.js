@@ -1,4 +1,3 @@
-/* by jiawanlong*/
 var widgets = {
     loader: {
         //显示loading

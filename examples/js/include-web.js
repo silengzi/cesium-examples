@@ -1,4 +1,3 @@
-/* by jiawanlong*/
 (function () {
     
     var r = new RegExp("(^|(.*?\\/))(include-web\.js)(\\?|$)"),

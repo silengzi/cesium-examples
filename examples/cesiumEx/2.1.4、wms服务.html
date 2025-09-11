@@ -1,6 +1,3 @@
-<!--********************************************************************
-* by jiawanlong
-*********************************************************************-->
 <!DOCTYPE html>
 <html>
 
@@ -21,7 +18,17 @@
         // 开启帧率
         viewer.scene.debugShowFramesPerSecond = true;
 
-        
+        var wms = new Cesium.WebMapServiceImageryProvider({
+            url: 'https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi?',
+            layers: 'nexrad-n0r',
+            dredit: 'demo',
+            parameters: {
+                transparent: 'true',
+                format: 'image/png'
+            }
+        })
+
+        viewer.imageryLayers.addImageryProvider(wms)
     </script>
 </body>
 
