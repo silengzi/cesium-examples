@@ -18,6 +18,14 @@
         // 开启帧率
         viewer.scene.debugShowFramesPerSecond = true;
 
+        // Cesium 地形
+        viewer.terrainProvider = Cesium.createWorldTerrain({
+            requestWaterMask: true,
+            requestVertexNormals: true
+        })
+
+        // 地形夸张
+        viewer.scene.globe.terrainExaggeration = 10
     </script>
 </body>
 
