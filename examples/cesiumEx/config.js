@@ -467,30 +467,30 @@ var exampleConfig = {
                     // },
                 ]
             },
-            // "masas56sp2": {
-            //     name: "2.2、地形",
-            //     name_en: "2.2、地形",
-            //     content: [
-            //         {
-            //             name: "2.2.1、离线地形",
-            //             name_en: "2.2.1、离线地形",
-            //             thumbnail: "2.2.1、离线地形.jpg",
-            //             fileName: "2.2.1、离线地形"
-            //         },
-            //         {
-            //             name: "2.2.2、默认地形",
-            //             name_en: "2.2.2、默认地形",
-            //             thumbnail: "2.2.2、默认地形.jpg",
-            //             fileName: "2.2.2、默认地形"
-            //         },
-            //         {
-            //             name: "2.2.3、地形夸张",
-            //             name_en: "2.2.3、地形夸张",
-            //             thumbnail: "2.2.3、地形夸张.jpg",
-            //             fileName: "2.2.3、地形夸张"
-            //         },
-            //     ]
-            // },
+            "masas56sp2": {
+                name: "2.2、地形",
+                name_en: "2.2、地形",
+                content: [
+                    {
+                        name: "2.2.1、离线地形",
+                        name_en: "2.2.1、离线地形",
+                        thumbnail: "2.2.1、离线地形.jpg",
+                        fileName: "2.2.1、离线地形"
+                    },
+                    {
+                        name: "2.2.2、默认地形",
+                        name_en: "2.2.2、默认地形",
+                        thumbnail: "2.2.2、默认地形.jpg",
+                        fileName: "2.2.2、默认地形"
+                    },
+                    {
+                        name: "2.2.3、地形夸张",
+                        name_en: "2.2.3、地形夸张",
+                        thumbnail: "2.2.3、地形夸张.jpg",
+                        fileName: "2.2.3、地形夸张"
+                    },
+                ]
+            },
             // "mapfdf999sa3": {
             //     name: "2.3、矢量",
             //     name_en: "2.3、矢量",

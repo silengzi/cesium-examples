@@ -18,7 +18,14 @@
         // 开启帧率
         viewer.scene.debugShowFramesPerSecond = true;
 
-        
+        // 清除默认地形
+        viewer.scene.terrainProvider = new Cesium.EllipsoidTerrainProvider({});
+
+        // 加载默认地形
+        viewer.terrainProvider = Cesium.createWorldTerrain({
+            requestWaterMask: true, // 请求水掩膜以实现水体效果
+            requestVertexNormals: true // 请求法线以实现光照效果
+        })
     </script>
 </body>
 
