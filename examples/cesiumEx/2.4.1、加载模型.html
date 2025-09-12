@@ -19,17 +19,40 @@
         viewer.scene.debugShowFramesPerSecond = true;
 
 
-        const tileset = new Cesium.Cesium3DTileset({
-            url: './data/tileset.json'
+        // 取消默认的单击和双击事件，右上角弹窗很丑
+        viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_CLICK);
+        viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
+
+        var position = Cesium.Cartesian3.fromDegrees(-95.0, 40.0, 200000.0);
+        var heading = Cesium.Math.toRadians(0)
+        var pitch = Cesium.Math.toRadians(0)
+        var roll = Cesium.Math.toRadians(0)
+
+        var hpr = new Cesium.HeadingPitchRoll(heading, pitch, roll)
+        var orientation = Cesium.Transforms.headingPitchRollQuaternion(position, hpr)
+
+        var entity = viewer.entities.add({
+            position,
+            orientation,
+            model: {
+                uri: './feiji.glb',
+                scale: 10,
+                color: Cesium.Color.fromCssColorString('rgba(254, 129, 6, 0.65)'), // 混合色
+                silhouetteColor: Cesium.Color.fromCssColorString('#001aff'), // 边框
+                silhouetteSize: 5, // 边框大小
+                colorBlendMode: Cesium.ColorBlendMode.MIX,
+                runAnimations: true,
+                shadows: Cesium.ShadowMode.CAST_ONLY,
+                colorBlendAmount: 0
+            }
         })
 
-        tileset.debugShowBoundingVolume = true // 显示包围盒
-        tileset.readyPromise.then(tileset => {
-            viewer.scene.primitives.add(tileset)
-            viewer.zoomTo(tileset)
-        }).catch(err => {
-            console.log('err: ', err);
-        })
+        // 控制模型运动
+        // entity.model.runAnimations = 1
+        // entity.model.runAnimations = 0
+
+        viewer.flyTo(entity)
+        // viewer.trackedEntity = entity
     </script>
 </body>
 
