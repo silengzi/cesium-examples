@@ -27,109 +27,118 @@
         viewer.scene.globe.depthTestAgainstTerrain = true
 
 
-        // extrudedHeight是本身高度
-        // height是离地高度
+        // ========== 四种Entity面类型的区别总结 ==========
+        // 1. 贴地面：使用fromDegreesArray，只有经纬度，自动贴地，无高度信息
+        // 2. 贴地围墙：使用fromDegreesArray + extrudeHeight，从地面向上拉伸形成立体围墙
+        // 3. 立面拉伸填充面：使用fromDegreesArrayHeights + perPositionHeight，每个顶点独立高度，有顶部和底部
+        // 4. 立体悬浮面：使用fromDegreesArrayHeights + perPositionHeight，每个顶点独立高度，无底部拉伸
+        //
+        // 关键参数说明：
+        // - extrudedHeight：从地面向上拉伸的高度（米）
+        // - perPositionHeight：启用每个顶点的独立高度
+        // - closeTop/closeBottom：是否封闭顶部和底部
+        // - outline：是否显示边框线
         // --------注意：贴地时候，没extrudedHeight，所以outline不会生效---------------
 
+        // 第一种：最简单的贴地面
+        // 特点：直接贴在地表上，没有高度信息，只有经纬度坐标
         const redPolygon = viewer.entities.add({
             name: '最简单的贴地面',
             polygon: {
+                // 使用fromDegreesArray只提供经纬度，高度自动贴地
                 hierarchy: Cesium.Cartesian3.fromDegreesArray([
-                    -115.0,
-                    37.0,
-                    -115.0,
-                    32.0,
-                    -107.0,
-                    33.0,
-                    -102.0,
-                    31.0,
-                    -102.0,
-                    35.0
+                    -115.0, 37.0,  // 第一个点：经度-115.0，纬度37.0
+                    -115.0, 32.0,  // 第二个点
+                    -107.0, 33.0,  // 第三个点
+                    -102.0, 31.0,  // 第四个点
+                    -102.0, 35.0   // 第五个点
                 ]),
-                material: Cesium.Color.RED.withAlpha(0.5)
+                material: Cesium.Color.RED.withAlpha(0.5) // 半透明红色材质
             },
+            // 同时添加边框线，用于显示面的轮廓
             polyline: {
                 position: Cesium.Cartesian3.fromDegreesArray([
-                    -115.0,
-                    37.0,
-                    -115.0,
-                    32.0,
-                    -107.0,
-                    33.0,
-                    -102.0,
-                    31.0,
-                    -102.0,
-                    35.0,
-                    -115.0,
-                    37.0
+                    -115.0, 37.0,  // 边框线的坐标点（与面相同）
+                    -115.0, 32.0,
+                    -107.0, 33.0,
+                    -102.0, 31.0,
+                    -102.0, 35.0,
+                    -115.0, 37.0   // 闭合边框，回到起点
                 ]),
-                width: 3,
-                material: Cesium.Color.BLUE,
-                clampToGround: true // 贴地划线
+                width: 3,                                    // 边框线宽度
+                material: Cesium.Color.BLUE,                 // 蓝色边框
+                clampToGround: true                          // 边框线也贴地显示
             }
         })
 
+        // 第二种：贴地围墙（立体拉伸面）- 实测无效，采用下面第二种
+        // 特点：从地面向上拉伸形成立体围墙，有高度但没有顶部和底部
+        // const greenPolygon = viewer.entities.add({
+        //     name: '贴地围墙',
+        //     polygon: {
+        //         // 使用fromDegreesArray只提供经纬度，高度由extrudeHeight控制
+        //         hierarchy: Cesium.Cartesian3.fromDegreesArray([
+        //             -108.0, 42.0,  // 第一个点
+        //             -100.0, 42.0,  // 第二个点
+        //             -104.0, 40.0,  // 第三个点
+        //         ]),
+        //         extrudeHeight: 50000.0,        // 从地面向上拉伸50000米（50公里）
+        //         material: Cesium.Color.GREEN,  // 绿色材质
+        //         closeTop: false,               // 不封闭顶部（没有顶面）
+        //         closeBottom: false             // 不封闭底部（没有底面）
+        //     }
+        // })
         const greenPolygon = viewer.entities.add({
             name: '贴地围墙',
-            polygon: {
-                hierarchy: Cesium.Cartesian3.fromDegreesArray([
-                    -108.0,
-                    42.0,
-                    -100.0,
-                    42.0,
-                    -104.0,
-                    40.0,
+            wall: {
+                positions: Cesium.Cartesian3.fromDegreesArray([
+                    -108.0, 42.0,
+                    -100.0, 42.0,
+                    -104.0, 40.0,
+                    -108.0, 42.0,
                 ]),
-                extrudeHeight: 50000.0,
-                material: Cesium.Color.GREEN,
-                closeTop: false,
-                closeBottom: false
+                minimumHeights: [0, 0, 0, 0],     // 底部贴地（跟随地形可改成采样地形）
+                maximumHeights: [50000, 50000, 50000, 50000], // 顶部高度
+                material: Cesium.Color.GREEN.withAlpha(0.5)
             }
-        })
+        });
 
+
+        // 第三种：立面拉伸填充面（不规则高度面）
+        // 特点：每个顶点都有独立的高度值，形成不规则的三维面，有顶部和底部
         const orangePolygon = viewer.entities.add({
             name: '立面拉伸填充面',
             polygon: {
+                // 使用fromDegreesArrayHeights提供经纬度和高度信息
                 hierarchy: Cesium.Cartesian3.fromDegreesArrayHeights([
-                    -108.0,
-                    25.0,
-                    100000,
-                    -100.0,
-                    25.0,
-                    100000,
-                    -100.0,
-                    30.0,
-                    100000,
-                    -108.0,
-                    30.0,
-                    300000,
+                    -108.0, 25.0, 100000,  // 第一个点：经度-108.0，纬度25.0，高度100000米
+                    -100.0, 25.0, 100000,  // 第二个点：高度100000米
+                    -100.0, 30.0, 100000,  // 第三个点：高度100000米
+                    -108.0, 30.0, 300000,  // 第四个点：高度300000米（形成倾斜面）
                 ]),
-                extrudeHeight: 0,
-                perPositionHeight: true,
-                material: Cesium.Color.ORANGE.withAlpha(0.5),
-                outline: true,
-                outlineColor: Cesium.Color.BLACK
+                extrudeHeight: 0,                              // 不进行额外拉伸（高度由顶点控制）
+                perPositionHeight: true,                       // 启用每个位置的高度（关键参数）
+                material: Cesium.Color.ORANGE.withAlpha(0.5), // 半透明橙色材质
+                outline: true,                                 // 显示边框线
+                outlineColor: Cesium.Color.BLACK              // 黑色边框
             }
         })
 
+        // 第四种：立体悬浮面（不规则高度面，无拉伸）
+        // 特点：每个顶点都有独立高度，形成悬浮在空中的不规则面，没有底部拉伸
         const cyanPolygon = viewer.entities.add({
             name: '立体悬浮面',
             polygon: {
+                // 使用fromDegreesArrayHeights提供经纬度和高度信息
                 hierarchy: Cesium.Cartesian3.fromDegreesArrayHeights([
-                    -90.0,
-                    41.0,
-                    0.0,
-                    -85.0,
-                    41.0,
-                    5000.0,
-                    -80.0,
-                    36.0,
-                    95550.0,
+                    -90.0, 41.0, 0.0,      // 第一个点：高度0米（贴地）
+                    -85.0, 41.0, 5000.0,   // 第二个点：高度5000米（悬浮）
+                    -80.0, 36.0, 95550.0,  // 第三个点：高度95550米（高空悬浮）
                 ]),
-                perPositionHeight: true,
-                material: Cesium.Color.CYAN.withAlpha(0.5),
-                outline: true,
-                outlineColor: Cesium.Color.BLACK
+                perPositionHeight: true,                       // 启用每个位置的高度（关键参数）
+                material: Cesium.Color.CYAN.withAlpha(0.5),   // 半透明青色材质
+                outline: true,                                 // 显示边框线
+                outlineColor: Cesium.Color.BLACK              // 黑色边框
             }
         })
 
