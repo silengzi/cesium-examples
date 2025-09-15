@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./../../libs/cesium/Cesium1.98/Widgets/widgets.css">
+    <script type="text/javascript" src="./../../libs/cesium/Cesium1.98/Cesium.js"></script>
+    <script src="./env.js"></script>
+</head>
+
+<body style="margin: 0; overflow: hidden; background: #fff; width: 100%; height: 100%; position: absolute; top: 0">
+    <div id="map" style="margin: 0 auto; width: 100%; height: 100%"></div>
+    <div style="position: absolute; z-index: 1000; left: 0;top: 0;">
+        <button onclick="customShader1()">纯渐变色</button>
+        <button onclick="customShader2()">纯渐变色+动态光圈</button>
+        <button onclick="customShader3()">清除</button>
+    </div>
+    <script type="text/javascript">
+
+        Cesium.Ion.defaultAccessToken = defaultAccessToken
+        const viewer = new Cesium.Viewer('map', {});
+
+        // 清除默认底图
+        viewer.imageryLayers.remove(viewer.imageryLayers.get(0));
+        // 清除默认地形
+        viewer.scene.terrainProvider = new Cesium.EllipsoidTerrainProvider({});
+        
+        // 开启帧率
+        viewer.scene.debugShowFramesPerSecond = true;
+
+        var options = {
+            crs: 'WGS84', // 使用84坐标系，默认为：GCJ02
+            style: 4
+        }
+        viewer.imageryLayers.add(new Cesium.ImageryLayer(new Cesium.TencentImageryProvider(options)))
+
+        const tileset = new Cesium.Cesium3DTileset({
+            url: './data/tileset.json'
+        })
+
+        tileset.readyPromise
+            .then(tileset => {
+                viewer.scene.primitives.add(tileset)
+                viewer.zoomTo(tileset)
+            }).catch(err => {
+                console.log(err);
+            })
+
+        // 逐渐变色
+        function customShader1() {
+            let customShader = new Cesium.CustomShader({
+                // 片元着色器 - 控制每个像素的颜色
+                fragmentShaderText: `
+                    void fragmentMain(FragmentInput fsInput, inout czm_modelMaterial material) {
+                        // 获取模型坐标系中的顶点位置
+                        vec3 positionMC = fsInput.attributes.positionMC;
+                        
+                        // 设置漫反射颜色，基于Y坐标创建渐变效果
+                        // R通道：固定为0（红色分量）
+                        // G通道：1.0 - positionMC.y * 0.005（绿色分量，随高度递减）
+                        // B通道：1.0 - positionMC.y * 0.0015（蓝色分量，随高度递减，变化更慢）
+                        // 结果：从底部的蓝绿色渐变到顶部的红色
+                        material.diffuse = vec3(0.0, 1.0 - positionMC.y * 0.005, 1.0 - positionMC.y * 0.0015);
+                    }
+                `
+            })
+            tileset.customShader = customShader
+        }
+
+        // 纯渐变色 + 动态光圈
+        function customShader2() {
+            let customShader = new Cesium.CustomShader({
+                fragmentShaderText: `
+                    void fragmentMain(FragmentInput fsInput, inout czm_modelMaterial material) {
+                        // 获取模型坐标系中的顶点位置
+                        vec3 positionMC = fsInput.attributes.positionMC;
+                        
+                        // 第一部分：基础渐变色（与customShader1相同）
+                        // 设置漫反射颜色，基于Y坐标创建渐变效果
+                        material.diffuse = vec3(0.0, 1.0 - positionMC.y * 0.005, 1.0 - positionMC.y * 0.0015);
+
+                        // 第二部分：动态光圈效果参数设置
+                        float _baseHeight = 18.0; // 物体的基础高度，需要修改成一个合适的建筑基础高度
+                        float _heightRange = 60.0; // 高亮的范围(_baseHeight ~ _baseHeight + _heightRange) 默认是 0-60米
+                        float _glowRange = 120.0; // 光环的移动范围(高度)
+
+                        // 计算相对于基础高度的位置
+                        float vtxf_height = fsInput.attributes.positionMC.y - _baseHeight;
+                        
+                        // 创建基于时间的正弦波动画
+                        // czm_frameNumber是Cesium提供的帧计数器，用于创建时间动画
+                        float vtxf_a11 = fract(czm_frameNumber / 360.0) * 3.14159265 * 2.0; //此处括号内分母为移动速度
+                        
+                        // 将高度范围映射到0-1，并添加正弦波动画
+                        float vtxf_a12 = vtxf_height / _heightRange + sin(vtxf_a11) * 0.1;
+                        
+                        // 将基础颜色与动画值相乘，创建闪烁效果
+                        material.diffuse *= vec3(vtxf_a12, vtxf_a12, vtxf_a12);
+
+                        // 第三部分：动态光圈效果
+                        // 创建另一个基于时间的动画值
+                        float vtxf_a13 = fract(czm_frameNumber / 360.0); //此处括号内分母为移动速度，数值越大，速度越慢
+                        
+                        // 将高度映射到0-1范围
+                        float vtxf_h = clamp(vtxf_height / _glowRange, 0.0, 1.0);
+                        
+                        // 将时间值转换为0-1-0的循环（创建上下移动的光圈）
+                        vtxf_a13 = abs(vtxf_a13 - 0.5) * 2.0;
+                        
+                        // 计算光圈边缘的渐变效果
+                        // stemp函数创建平滑的阶跃函数，0.01控制光圈的粗细
+                        float vtxf_diff = stemp(0.01, abs(vtxf_h - vtxf_a13)); // 0.1 为高亮光条的范围（粗细）
+                        
+                        // 将光圈效果添加到材质颜色上
+                        material.diffuse += material.diffuse * (1.0 - vtxf_diff);
+                    }
+                `
+            })
+            tileset.customShader = customShader
+        }
+
+        // 清除
+        function customShader3() {
+            let customShader = new Cesium.CustomShader({
+
+            })
+            tileset.customShader = customShader
+        }
+
+
+        /*
+            CustomShader用法
+        */
+        // const customShaders = new Cesium.CustomShader({
+        //     // 用户想要添加到着色器的任何自定义uniform。
+        //     //Uniform是一种在着色器程序中定义的全局变量，它们可以在着色器程序的任何地方使用，但它们的值在每个渲染周期中都是不变的。
+        //     // 这些可以在运行时通过以下方式 更改 customShader.setUniform()
+        //     uniforms: {
+        //         u_time: {
+        //             value: 0, // 初始值
+        //             type: Cesium.UniformType.FLOAT
+        //         },
+        //         // Textures can be loaded from a URL, a Resource, or a TypedArray.//纹理可以从 URL、资源或类型数组加载
+        //         // 有关更多详细信息，请参阅Uniforms部分
+        //         u_externalTexture: {
+        //             value: new Cesium.TextureUniform({
+        //                 url: "http://example.com/image.png"
+        //             }),
+        //             type: Cesium.UniformType.SAMPLER_2D
+        //         },
+        //         // 将出现在自定义顶点和片段着色器文本中的自定义变化。
+        //         varyings: {
+        //             v_customTexCoords: Cesium.VaryingType.VEC2
+        //         },
+        //         // configure where in the fragment shader's materials/lighting pipeline the custom shader goes. More on this below.
+        //         //配置自定义着色器在片段着色器的材质/光照管线中的位置。更多内容见下文。
+        //         mode: Cesium.CustomShaderMode.MODIFY_MATERIAL,
+        //         // either PBR (physically-based rendering) or UNLIT depending on the desired results.
+        //         //PBR（基于物理的渲染）或 UNLIT，具体取决于所需的结果。
+        //         lightingModel: Cesium.LightingModel.PBR,
+        //         // Force the shader to render as transparent, even if the primitive had an opaque material
+        //         //强制着色器渲染为透明，即使基元具有不透明材质
+        //         translucencyMode: Cesium.CustomShaderTranslucencyMode.TRANSLUCENT,
+        //         // Custom vertex shader. This is a function from model space -> model space.VertexInput is documented below
+        //         // 自定义顶点着色器。这是模型空间 ->模型空间的函数.VertexInput输入记录如下
+        //         vertexShaderText: `
+        //             // IMPORTANT: the function signature must use these parameter names. This
+        //             // makes it easier for the runtime to generate the shader and make optimizations.
+        //             //重要说明：函数签名必须使用这些参数名称。这使运行时更容易生成着色器并进行优化。
+        //             void vertexMain(VertexInput vsInput, inout czm_modelVertexOutput vsOutput) {
+        //                 // code goes here. An empty body is a no-op.
+        //                 //代码在这里……空的内容是无操作的。
+        //             }
+        //         `,
+        //         // Custom fragment shader.
+        //         // FragmentInput will be documented below
+        //         // Regardless of the mode, this always takes in a material and modifies it in place.
+        //         //自定义片元着色器
+        //         //FragmentInput（片元）输入将被记录在下面 
+        //         //无论模式如何，这里需要一个material（材质）并将其modifies（位置）放到位                                           
+        //         fragmentShaderText: `
+        //             // IMPORTANT: the function signature must use these parameter names. This
+        //             // makes it easier for the runtime to generate the shader and make optimizations.
+        //             // 重要提示：函数签名必须使用这些参数名称。这
+        //             // 使运行时更容易生成着色器并进行优化。
+        //             void fragmentMain(FragmentInput fsInput, inout czm_modelMaterial material) {
+        //                 // code goes here. e.g. to set the diffuse color to a translucent red:
+        //                 //代码在这里。例如将漫反射颜色设置为半透明的红色：
+        //                 material.diffuse = vec3(1.0, 0.0, 0.0);
+        //                 material.alpha = 0.5;
+        //             }
+        //         `,
+        //     }
+        // });
+    </script>
+</body>
+
+</html>

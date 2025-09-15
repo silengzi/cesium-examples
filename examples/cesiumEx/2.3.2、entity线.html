@@ -31,18 +31,18 @@
         var line1 = viewer.entities.add({
             name: 'line1',
             polyline: {
-                position: Cesium.Cartesian3.fromDegreesArray([-77, 35, -80, 35, -90, 45]),
+                positions: Cesium.Cartesian3.fromDegreesArray([-77, 35, -80, 35, -90, 45]),
                 width: 3,
                 material: Cesium.Color.RED,
                 clampToGround: true // 贴地划线
             }
         })
 
-        // 不贴地
+        // 不贴地（会穿模 - 地形、球体等）
         var line2 = viewer.entities.add({
             name: 'line2',
             polyline: {
-                position: Cesium.Cartesian3.fromDegreesArray([-77, 30, -80, 30, -90, 40]),
+                positions: Cesium.Cartesian3.fromDegreesArray([-77, 30, -80, 30, -90, 40]),
                 width: 3,
                 material: Cesium.Color.BLUE,
                 clampToGround: false
@@ -56,7 +56,7 @@
         var line3 = viewer.entities.add({
             name: 'line3',
             polyline: {
-                position: [start, end],
+                positions: [start, end],
                 width: 3,
                 material: Cesium.Color.GREEN,
                 clampToGround: false
