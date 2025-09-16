@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./../../libs/cesium/Cesium1.98/Widgets/widgets.css">
+    <script type="text/javascript" src="./../../libs/cesium/Cesium1.98/Cesium.js"></script>
+    <script src="./env.js"></script>
+    <script src="./latlng.js"></script>
+    <script src="./analyser.js"></script>
+    <script src="./viewshed.js"></script>
+</head>
+
+<body style="margin: 0; overflow: hidden; background: #fff; width: 100%; height: 100%; position: absolute; top: 0">
+    <div id="map" style="margin: 0 auto; width: 100%; height: 100%"></div>
+    <script type="text/javascript">
+
+        Cesium.Ion.defaultAccessToken = defaultAccessToken
+        
+        const viewer = new Cesium.Viewer('map', {
+            contextOptions: {
+                requestWebgl1: true
+            }
+        });
+
+        viewer.scene.debugShowFramesPerSecond = true;
+
+        // 加载默认地形
+        viewer.terrainProvider = Cesium.createWorldTerrain({
+            requestWaterMask: true, // 请求水掩膜以实现水体效果
+            requestVertexNormals: true // 请求法线以实现光照效果
+        });
+
+        // 深度监测
+        viewer.scene.globe.depthTestAgainstTerrain = true;
+
+
+        var viewsheds = []
+
+        var options = {
+            qdOffset: 2,
+            zdOffset: 2
+        }
+
+        var viewshedObj = new viewshed(viewer, options)
+        viewsheds.push(viewshedObj)
+
+        function click_clear() {
+            viewsheds.foEach(item => {
+                item.clear()
+            })
+        }
+    </script>
+</body>
+
+</html>
