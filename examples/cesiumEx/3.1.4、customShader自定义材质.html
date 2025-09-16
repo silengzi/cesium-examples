@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./../../libs/cesium/Cesium1.98/Widgets/widgets.css">
     <script type="text/javascript" src="./../../libs/cesium/Cesium1.98/Cesium.js"></script>
     <script src="./env.js"></script>
+    <script src="./cesium.map.min.js"></script>
 </head>
 
 <body style="margin: 0; overflow: hidden; background: #fff; width: 100%; height: 100%; position: absolute; top: 0">
@@ -109,7 +110,7 @@
                         
                         // 计算光圈边缘的渐变效果
                         // stemp函数创建平滑的阶跃函数，0.01控制光圈的粗细
-                        float vtxf_diff = stemp(0.01, abs(vtxf_h - vtxf_a13)); // 0.1 为高亮光条的范围（粗细）
+                        float vtxf_diff = step(0.01, abs(vtxf_h - vtxf_a13)); // 0.1 为高亮光条的范围（粗细）
                         
                         // 将光圈效果添加到材质颜色上
                         material.diffuse += material.diffuse * (1.0 - vtxf_diff);

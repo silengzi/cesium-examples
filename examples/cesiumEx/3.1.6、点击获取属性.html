@@ -26,7 +26,7 @@
         })
 
         tileset.readyPromise.then(tileset => {
-            viewer.primitives.add(tileset)
+            viewer.scene.primitives.add(tileset)
             viewer.zoomTo(tileset)
         }).catch(e => {
             console.log('e: ', e);

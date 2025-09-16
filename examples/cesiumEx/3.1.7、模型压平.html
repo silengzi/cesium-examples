@@ -6,22 +6,76 @@
     <link rel="stylesheet" href="./../../libs/cesium/Cesium1.98/Widgets/widgets.css">
     <script type="text/javascript" src="./../../libs/cesium/Cesium1.98/Cesium.js"></script>
     <script src="./env.js"></script>
+    <!-- 引入模型压平工具类 -->
+    <script src="./flat.js"></script>
 </head>
 
 <body style="margin: 0; overflow: hidden; background: #fff; width: 100%; height: 100%; position: absolute; top: 0">
+    <!-- 创建地图容器，占满整个屏幕 -->
     <div id="map" style="margin: 0 auto; width: 100%; height: 100%"></div>
     <script type="text/javascript">
 
         Cesium.Ion.defaultAccessToken = defaultAccessToken
+        
         const viewer = new Cesium.Viewer('map', {});
 
-        // 开启帧率
         viewer.scene.debugShowFramesPerSecond = true;
 
-        viewer.scene.globe.depthTestAgainstTerrain = true;
+        viewer.terrainProvider = new Cesium.CesiumTerrainProvider({
+            url: 'http://data.mars3d.cn/terrain'
+        })
 
+        // 创建3D瓦片集（Cesium3DTileset），用于加载三维模型
+        // 3D Tiles是Cesium用于高效传输和渲染大量3D数据的标准
+        const tileset = new Cesium.Cesium3DTileset({
+            url: './data/tileset.json',  // 瓦片集的配置文件路径
+            maximumScreenSpaceError: 1,  // 最大屏幕空间误差，控制LOD（细节层次）切换
+        })
 
-        
+        // 等待瓦片集加载完成
+        tileset.readyPromise.then(tileset => {
+            // 将瓦片集添加到场景中
+            viewer.scene.primitives.add(tileset)
+            // 将相机视角缩放到瓦片集，确保模型在视野中
+            viewer.zoomTo(tileset)
+
+            // 获取瓦片集的边界球中心点，并转换为地理坐标
+            var cartographic = Cesium.Cartographic.fromCartesian(tileset.boundingSphere.center)
+            // 创建地表位置（高度为0）
+            var surface = Cesium.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, 0)
+            // 创建偏移位置（高度为80米）
+            var offset = Cesium.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, 80)
+            // 计算从地表到偏移位置的平移向量
+            var translation = Cesium.Cartesian3.subtract(offset, surface, new Cesium.Cartesian3())
+            // 设置瓦片集的模型矩阵，将模型向上平移80米
+            // 这样可以避免模型与地表重叠，提高视觉效果
+            tileset.modelMatrix = Cesium.Matrix4.fromTranslation(translation.clone())
+
+            // 定义压平区域的四个顶点坐标（世界坐标系）
+            // 这些坐标定义了一个矩形区域，该区域内的模型将被压平
+            let arr = [
+                new Cesium.Cartesian3( -2580727.5168023095,  4650258.972413558, 3508953.4819122115 ),
+                new Cesium.Cartesian3( -2581252.4920162656,  4650087.404390791, 3508794.900735431 ),
+                new Cesium.Cartesian3( -2581254.813624642,  4649950.479168881, 3508978.370871617 ),
+                new Cesium.Cartesian3( -2580723.027766725,  4650025.757869746, 3509279.009217198 )
+            ]
+
+            // 创建模型压平工具实例
+            // 第一个参数是瓦片集对象，第二个参数是配置选项
+            let flatTool = new Flat(tileset, {
+                flatHeight: -30  // 压平高度，负值表示向下压平30米
+            })
+            
+            // 添加压平区域
+            // 在指定的坐标区域内，模型将被压平到指定高度
+            flatTool.addRegion({
+                positions: arr,  // 压平区域的顶点坐标数组
+                id: new Date().getTime()  // 唯一标识符，使用当前时间戳
+            })
+        }).catch(e => {
+            // 如果瓦片集加载失败，在控制台输出错误信息
+            console.log('e: ', e);
+        })
     </script>
 </body>
 
