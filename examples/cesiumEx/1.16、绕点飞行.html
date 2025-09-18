@@ -29,7 +29,29 @@
         viewer.clock.startTime = startTime.clone() // 开始时间
         viewer.clock.stopTime = stopTime.clone() // 结束时间
         viewer.clock.currentTime = startTime.clone() // 当前时间
-        
+        viewer.clock.clockRange = Cesium.ClockRange.CLAMPED // 行为方式
+        viewer.clock.clockStemp = Cesium.ClockStep.SYETEM_CLOCK // 时钟设置为当前系统时间; 忽略所有其他设置。
+
+        // 相机的当前heading
+        var initialHeading = viewer.camera.heading
+        var Exection = () => {
+            // 当前已经过去的时间，单位s
+            var delTime = Cesium.JulianDate.secondsDifference(viewer.clock.currentTime, viewer.clock.startTime)
+            var heading = Cesium.Math.toRadians(delTime * angle) + initialHeading
+            viewer.camera.setView({
+                destination: position, // 点的坐标
+                orientation: {
+                    heading: heading,
+                    pitch: pitch
+                }
+            })
+            viewer.camera.moveBackward(distance)
+            if(Cesium.JulianDate.compare(viewer.clock.currentTime, viewer.clock.stopTime) >= 0) {
+                viewer.clock.onTick.removeEventListener(Exection)
+            }
+        }
+
+        viewer.clock.onTick.addEventListener(Exection)
     </script>
 </body>
 
