@@ -136,106 +136,6 @@
                     </li> -->
         </ul>
       </div>
-      <div
-        style="
-          z-index: 1000;
-          position: fixed;
-          right: 15px;
-          padding: 16px 24px;
-          top: 75px;
-          background: linear-gradient(45deg, #ff6b6b, #ff8e53, #ff6b6b);
-          background-size: 200% 200%;
-          border-radius: 15px;
-          box-shadow: 0 10px 40px rgba(255, 107, 107, 0.4), 0 0 0 3px rgba(255, 255, 255, 0.1);
-          border: 2px solid rgba(255, 255, 255, 0.3);
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          animation: slideInRight 0.8s ease-out, pulse 2s infinite, gradientShift 3s ease-in-out infinite;
-          cursor: pointer;
-          max-width: 280px;
-        "
-        onmouseover="this.style.transform='translateY(-3px) scale(1.02)'; this.style.boxShadow='0 15px 50px rgba(255, 107, 107, 0.6), 0 0 0 4px rgba(255, 255, 255, 0.2)'"
-        onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 40px rgba(255, 107, 107, 0.4), 0 0 0 3px rgba(255, 255, 255, 0.1)'"
-        onclick="alert('联系方式：微信 ljr0910_')"
-      >
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-          <span style="font-size: 18px; animation: bounce 1.5s infinite;">🚀</span>
-          <span
-            style="
-              font-size: 16px;
-              font-weight: 700;
-              color: white;
-              text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-              letter-spacing: 0.8px;
-              text-transform: uppercase;
-            "
-            >HIRING NOW!</span
-          >
-        </div>
-        <div
-          style="
-            font-size: 15px;
-            font-weight: 600;
-            color: white;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            letter-spacing: 0.3px;
-            line-height: 1.3;
-            margin-bottom: 4px;
-          "
-          >💼 求职中，求内推</div
-        >
-        <div
-          style="
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.95);
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-            font-weight: 500;
-          "
-          >📍 北京 | 微信：ljr0910_</div
-        >
-      </div>
-      
-      <style>
-        @keyframes slideInRight {
-          from {
-            transform: translateX(120%);
-            opacity: 0;
-          }
-          to {
-            transform: translateX(0);
-            opacity: 1;
-          }
-        }
-        
-        @keyframes pulse {
-          0%, 100% {
-            box-shadow: 0 10px 40px rgba(255, 107, 107, 0.4), 0 0 0 3px rgba(255, 255, 255, 0.1);
-          }
-          50% {
-            box-shadow: 0 10px 40px rgba(255, 107, 107, 0.6), 0 0 0 5px rgba(255, 255, 255, 0.2);
-          }
-        }
-        
-        @keyframes gradientShift {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-        
-        @keyframes bounce {
-          0%, 20%, 50%, 80%, 100% {
-            transform: translateY(0);
-          }
-          40% {
-            transform: translateY(-4px);
-          }
-          60% {
-            transform: translateY(-2px);
-          }
-        }
-      </style>
     </div>
   </div>
 </nav>
@@ -258,5 +158,28 @@
 
   .navbar-rightbar {
     margin-right: 0 !important;
+  }
+  /* Enforce header height to 72px */
+  .navbar {
+    min-height: 72px !important;
+  }
+  .navcontentfixed {
+    height: 72px !important;
+  }
+  .navbar-brand {
+    height: 72px !important;
+  }
+  .navbar-nav > li {
+    height: 72px !important;
+    display: flex;
+    align-items: center;
+  }
+  .navbar-nav > li > a {
+    padding-top: 24px;
+    padding-bottom: 24px; 
+  }
+  .navbar-rightbar > ul > li {
+    height: 72px !important;
+    padding: 24px 16px;
   }
 </style>
