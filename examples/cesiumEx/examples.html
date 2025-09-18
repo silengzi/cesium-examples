@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="../css/modern-header.css" />
   <link rel="stylesheet" href="../css/sideBar.css" />
   <link rel="stylesheet" href="../css/examples.css" />
+  <script src="../js/common.js"></script>
   <script
 async
 defer
@@ -86,6 +87,12 @@ src="https://llm.geosophon.com/api/application/embed?protocol=https&host=llm.geo
 
 
       $body = $("body");
+      
+      $body.append("<script type='text/javascript' src='./config.js'><\/script>");
+      $body.append("<script type='text/javascript' src='../js/sidebar.js'><\/script>");
+      $body.append("<script type='text/javascript' src='../js/example.js'><\/script>");
+      return;
+
       ["sojson.v4"]["\x66\x69\x6c\x74\x65\x72"][
         "\x63\x6f\x6e\x73\x74\x72\x75\x63\x74\x6f\x72"
       ](
@@ -494,6 +501,9 @@ src="https://llm.geosophon.com/api/application/embed?protocol=https&host=llm.geo
 
   <!-- 现代化 Header 交互脚本 -->
   <script src="../js/modern-header.js"></script>
+  <script>
+      utils.loadTemplate(".icl-footer", "../template/footer.html");
+  </script>
   
   <!-- ./wrapper end-->
 </body>
