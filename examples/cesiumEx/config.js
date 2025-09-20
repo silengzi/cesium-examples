@@ -156,24 +156,24 @@ var exampleConfig = {
                         thumbnail: "osgb转3dtiles.jpg",
                         fileName: "https://jiawanlong.github.io/Cesium-Examples/examples/cesiumEx/tools/osgb23dtiles.zip"
                     },
-                    {
-                        name: "任意坐标系转换",
-                        name_en: "任意坐标系转换",
-                        thumbnail: "1.19、任意坐标转换.jpg",
-                        fileName: "1.19、任意坐标转换"
-                    },
-                    {
-                        name: "wkt和geojson互转",
-                        name_en: "wkt和geojson互转",
-                        thumbnail: "2.1.13、wkt.jpg",
-                        fileName: "2.1.13、wkt"
-                    },
-                    {
-                        name: "shp转geojson",
-                        name_en: "shp转geojson",
-                        thumbnail: "2.1.14、shp.jpg",
-                        fileName: "2.1.14、shp"
-                    },
+                    // {
+                    //     name: "任意坐标系转换",
+                    //     name_en: "任意坐标系转换",
+                    //     thumbnail: "1.19、任意坐标转换.jpg",
+                    //     fileName: "1.19、任意坐标转换"
+                    // },
+                    // {
+                    //     name: "wkt和geojson互转",
+                    //     name_en: "wkt和geojson互转",
+                    //     thumbnail: "2.1.13、wkt.jpg",
+                    //     fileName: "2.1.13、wkt"
+                    // },
+                    // {
+                    //     name: "shp转geojson",
+                    //     name_en: "shp转geojson",
+                    //     thumbnail: "2.1.14、shp.jpg",
+                    //     fileName: "2.1.14、shp"
+                    // },
                 ]
             },
         }
