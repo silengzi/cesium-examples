@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="./../../libs/cesium/Cesium1.98/Widgets/widgets.css">
     <script type="text/javascript" src="./../../libs/cesium/Cesium1.98/Cesium.js"></script>
     <script src="./env.js"></script>
-    <script src="./turf.min.js"></script>
 </head>
 
 <body style="margin: 0; overflow: hidden; background: #fff; width: 100%; height: 100%; position: absolute; top: 0">
@@ -28,7 +27,7 @@
 
                 }
             })
-            veiwer2.camera.flyTo({
+            viewer2.camera.flyTo({
                 destination: Cesium.Rectangle.fromDegrees(110, 31, 112, 32),
                 complete: () => {
 
@@ -37,7 +36,7 @@
         }, 3000)
 
         initHandler(viewer1, viewer2)
-        initHandler(viewer2, viewer1)
+        initHandler1(viewer2, viewer1)
 
         function initHandler(viewer, viewer0) {
             if(handler && handler.getInputAction(Cesium.ScreenSpaceEventType.MOUSE_MOVE)) {
@@ -49,13 +48,13 @@
             handler.setInputAction((e) => {
                 var _camera = viewer.camera
                 viewer0.camera.setView({
-                    desination: _camera.position,
+                    destination: _camera.position,
                     orientation: {
-                        direction: _camerca._direction,
-                        up: _camerca.up,
-                        heading: _camerca.heading,
-                        pitch: _camerca.pitch,
-                        roll: _camerca.roll
+                        direction: _camera._direction,
+                        up: _camera.up,
+                        heading: _camera.heading,
+                        pitch: _camera.pitch,
+                        roll: _camera.roll
                     }
                 })
             }, Cesium.ScreenSpaceEventType.MOUSE_MOVE)
@@ -63,13 +62,13 @@
             handler.setInputAction((e) => {
                 var _camera = viewer.camera
                 viewer0.camera.setView({
-                    desination: _camera.position,
+                    destination: _camera.position,
                     orientation: {
-                        direction: _camerca._direction,
-                        up: _camerca.up,
-                        heading: _camerca.heading,
-                        pitch: _camerca.pitch,
-                        roll: _camerca.roll
+                        direction: _camera._direction,
+                        up: _camera.up,
+                        heading: _camera.heading,
+                        pitch: _camera.pitch,
+                        roll: _camera.roll
                     }
                 })
             }, Cesium.ScreenSpaceEventType.WHELL)
@@ -85,13 +84,13 @@
             handler1.setInputAction((e) => {
                 var _camera = viewer.camera
                 viewer0.camera.setView({
-                    desination: _camera.position,
+                    destination: _camera.position,
                     orientation: {
-                        direction: _camerca._direction,
-                        up: _camerca.up,
-                        heading: _camerca.heading,
-                        pitch: _camerca.pitch,
-                        roll: _camerca.roll
+                        direction: _camera._direction,
+                        up: _camera.up,
+                        heading: _camera.heading,
+                        pitch: _camera.pitch,
+                        roll: _camera.roll
                     }
                 })
             }, Cesium.ScreenSpaceEventType.MOUSE_MOVE)
@@ -99,13 +98,13 @@
             handler1.setInputAction((e) => {
                 var _camera = viewer.camera
                 viewer0.camera.setView({
-                    desination: _camera.position,
+                    destination: _camera.position,
                     orientation: {
-                        direction: _camerca._direction,
-                        up: _camerca.up,
-                        heading: _camerca.heading,
-                        pitch: _camerca.pitch,
-                        roll: _camerca.roll
+                        direction: _camera._direction,
+                        up: _camera.up,
+                        heading: _camera.heading,
+                        pitch: _camera.pitch,
+                        roll: _camera.roll
                     }
                 })
             }, Cesium.ScreenSpaceEventType.WHELL)

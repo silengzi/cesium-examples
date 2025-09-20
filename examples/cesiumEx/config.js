@@ -2,182 +2,182 @@ var identification = {
     name: "Leaflet"
 };
 var exampleConfig = {
-    // "mapping": {
-    //     name: "0、综合应用",
-    //     name_en: "0、综合应用",
-    //     content: {
-    //         "max2ssp": {
-    //             name: "综合应用",
-    //             name_en: "ba222212se",
-    //             content: [
-    //                 {
-    //                     name: "",
-    //                     name_en: "",
-    //                     thumbnail: "0.jpg",
-    //                     fileName: "00"
-    //                 },
-    //                 {
-    //                     name: "智慧园区运营中心",
-    //                     name_en: "智慧园区运营中心",
-    //                     thumbnail: "智慧园区.jpg",
-    //                     fileName: "./templates/2_park/index.html"
-    //                 },
-    //                 {
-    //                     name: "低空经济AI决策",
-    //                     name_en: "低空经济AI决策",
-    //                     thumbnail: "低空经济.jpg",
-    //                     fileName: "./templates/1_uav/index.html"
-    //                 },
-    //                 {
-    //                     name: "智慧交通",
-    //                     name_en: "智慧交通",
-    //                     thumbnail: "智慧交通.jpg",
-    //                     fileName: "./真实道路.html"
-    //                 },
+    "mapping": {
+        name: "0、综合应用",
+        name_en: "0、综合应用",
+        content: {
+            "max2ssp": {
+                name: "综合应用",
+                name_en: "ba222212se",
+                content: [
+                    // {
+                    //     name: "",
+                    //     name_en: "",
+                    //     thumbnail: "0.jpg",
+                    //     fileName: "00"
+                    // },
+                    // {
+                    //     name: "智慧园区运营中心",
+                    //     name_en: "智慧园区运营中心",
+                    //     thumbnail: "智慧园区.jpg",
+                    //     fileName: "./templates/2_park/index.html"
+                    // },
+                    // {
+                    //     name: "低空经济AI决策",
+                    //     name_en: "低空经济AI决策",
+                    //     thumbnail: "低空经济.jpg",
+                    //     fileName: "./templates/1_uav/index.html"
+                    // },
+                    // {
+                    //     name: "智慧交通",
+                    //     name_en: "智慧交通",
+                    //     thumbnail: "智慧交通.jpg",
+                    //     fileName: "./真实道路.html"
+                    // },
 
-    //                 {
-    //                     name: "智慧城市",
-    //                     name_en: "智慧城市",
-    //                     thumbnail: "案例1.jpg",
-    //                     fileName: "0"
-    //                 },
-    //                 {
-    //                     name: "智慧园区",
-    //                     name_en: "智慧城市",
-    //                     thumbnail: "000.jpg",
-    //                     fileName: "000"
-    //                 },
-    //                 {
-    //                     name: "台风",
-    //                     name_en: "台风",
-    //                     thumbnail: "1.jpg",
-    //                     fileName: "1"
-    //                 },
+                    // {
+                    //     name: "智慧城市",
+                    //     name_en: "智慧城市",
+                    //     thumbnail: "案例1.jpg",
+                    //     fileName: "0"
+                    // },
+                    // {
+                    //     name: "智慧园区",
+                    //     name_en: "智慧城市",
+                    //     thumbnail: "000.jpg",
+                    //     fileName: "000"
+                    // },
+                    // {
+                    //     name: "台风",
+                    //     name_en: "台风",
+                    //     thumbnail: "1.jpg",
+                    //     fileName: "1"
+                    // },
 
-    //                 {
-    //                     name: "下雨+闪电+洪水",
-    //                     name_en: "下雨+闪电+洪水",
-    //                     thumbnail: "2.jpg",
-    //                     fileName: "2"
-    //                 },
-    //                 {
-    //                     name: "二三维联动",
-    //                     name_en: "二三维联动",
-    //                     thumbnail: "二三维联动.jpg",
-    //                     fileName: "二三维联动"
-    //                 },
-    //                 // {
-    //                 //     name: "航拍",
-    //                 //     name_en: "航拍",
-    //                 //     thumbnail: "3.jpg",
-    //                 //     fileName: "3"
-    //                 // },
-    //                 {
-    //                     name: "双屏联动",
-    //                     name_en: "双屏联动",
-    //                     thumbnail: "10.1、双屏联动.jpg",
-    //                     fileName: "10.1、双屏联动"
-    //                 },
-    //                 {
-    //                     name: "GUI",
-    //                     name_en: "GUI",
-    //                     thumbnail: "4.jpg",
-    //                     fileName: "4"
-    //                 },
-    //                 {
-    //                     name: "GUI视锥体",
-    //                     name_en: "GUI视锥体",
-    //                     thumbnail: "5.3.12、GUI视锥体.jpg",
-    //                     fileName: "5.3.12、GUI视锥体"
-    //                 },
-    //                 {
-    //                     name: "Cesium融合Three",
-    //                     name_en: "Cesium融合Three",
-    //                     thumbnail: "Cesium融合Three.jpg",
-    //                     fileName: "Cesium融合Three"
-    //                 },
-    //                 {
-    //                     name: "楼栋分层",
-    //                     name_en: "楼栋分层",
-    //                     thumbnail: "楼栋分层.jpg",
-    //                     fileName: "楼栋分层"
-    //                 },
-    //                 {
-    //                     name: "实时在线云图",
-    //                     name_en: "实时在线云图",
-    //                     thumbnail: "实时在线云图.jpg",
-    //                     fileName: "实时在线云图"
-    //                 },
-    //                 {
-    //                     name: "加载超图S3M模型",
-    //                     name_en: "加载超图S3M模型",
-    //                     thumbnail: "s3m.jpg",
-    //                     fileName: "s3m"
-    //                 },
-    //                 // {
-    //                 //     name: "韩国空难",
-    //                 //     name_en: "韩国空难",
-    //                 //     thumbnail: "韩国空难.jpg",
-    //                 //     fileName: "韩国空难"
-    //                 // },
-    //             ]
-    //         },
-    //         "maxs111sp": {
-    //             name: "常用工具",
-    //             name_en: "常用工具",
-    //             content: [
-    //                 {
-    //                     name: "goejson在线",
-    //                     name_en: "Ggoejson在线",
-    //                     thumbnail: "Goejson.jpg",
-    //                     fileName: "https://geojson.io/"
-    //                 },
-    //                 {
-    //                     name: "mapshaper",
-    //                     name_en: "mapshaper",
-    //                     thumbnail: "mapshaper.jpg",
-    //                     fileName: "https://mapshaper.org/"
-    //                 },
-    //                 {
-    //                     name: "sketchfab",
-    //                     name_en: "sketchfab",
-    //                     thumbnail: "sketchfab.jpg",
-    //                     fileName: "https://sketchfab.com/feed"
-    //                 },
-    //                 {
-    //                     name: "obj转gltf",
-    //                     name_en: "obj转gltf",
-    //                     thumbnail: "obj转gltf.jpg",
-    //                     fileName: "https://jiawanlong.github.io/Cesium-Examples/examples/cesiumEx/tools/obj2gltf.zip"
-    //                 },
-    //                 {
-    //                     name: "osgb转3dtiles",
-    //                     name_en: "osgb转3dtiles",
-    //                     thumbnail: "osgb转3dtiles.jpg",
-    //                     fileName: "https://jiawanlong.github.io/Cesium-Examples/examples/cesiumEx/tools/osgb23dtiles.zip"
-    //                 },
-    //                 {
-    //                     name: "任意坐标系转换",
-    //                     name_en: "任意坐标系转换",
-    //                     thumbnail: "1.19、任意坐标转换.jpg",
-    //                     fileName: "1.19、任意坐标转换"
-    //                 },
-    //                 {
-    //                     name: "wkt和geojson互转",
-    //                     name_en: "wkt和geojson互转",
-    //                     thumbnail: "2.1.13、wkt.jpg",
-    //                     fileName: "2.1.13、wkt"
-    //                 },
-    //                 {
-    //                     name: "shp转geojson",
-    //                     name_en: "shp转geojson",
-    //                     thumbnail: "2.1.14、shp.jpg",
-    //                     fileName: "2.1.14、shp"
-    //                 },
-    //             ]
-    //         },
-    //     }
-    // },
+                    // {
+                    //     name: "下雨+闪电+洪水",
+                    //     name_en: "下雨+闪电+洪水",
+                    //     thumbnail: "2.jpg",
+                    //     fileName: "2"
+                    // },
+                    // {
+                    //     name: "二三维联动",
+                    //     name_en: "二三维联动",
+                    //     thumbnail: "二三维联动.jpg",
+                    //     fileName: "二三维联动"
+                    // },
+                    // // {
+                    // //     name: "航拍",
+                    // //     name_en: "航拍",
+                    // //     thumbnail: "3.jpg",
+                    // //     fileName: "3"
+                    // // },
+                    {
+                        name: "双屏联动",
+                        name_en: "双屏联动",
+                        thumbnail: "10.1、双屏联动.jpg",
+                        fileName: "10.1、双屏联动"
+                    },
+                    // {
+                    //     name: "GUI",
+                    //     name_en: "GUI",
+                    //     thumbnail: "4.jpg",
+                    //     fileName: "4"
+                    // },
+                    // {
+                    //     name: "GUI视锥体",
+                    //     name_en: "GUI视锥体",
+                    //     thumbnail: "5.3.12、GUI视锥体.jpg",
+                    //     fileName: "5.3.12、GUI视锥体"
+                    // },
+                    // {
+                    //     name: "Cesium融合Three",
+                    //     name_en: "Cesium融合Three",
+                    //     thumbnail: "Cesium融合Three.jpg",
+                    //     fileName: "Cesium融合Three"
+                    // },
+                    // {
+                    //     name: "楼栋分层",
+                    //     name_en: "楼栋分层",
+                    //     thumbnail: "楼栋分层.jpg",
+                    //     fileName: "楼栋分层"
+                    // },
+                    // {
+                    //     name: "实时在线云图",
+                    //     name_en: "实时在线云图",
+                    //     thumbnail: "实时在线云图.jpg",
+                    //     fileName: "实时在线云图"
+                    // },
+                    // {
+                    //     name: "加载超图S3M模型",
+                    //     name_en: "加载超图S3M模型",
+                    //     thumbnail: "s3m.jpg",
+                    //     fileName: "s3m"
+                    // },
+                    // // {
+                    // //     name: "韩国空难",
+                    // //     name_en: "韩国空难",
+                    // //     thumbnail: "韩国空难.jpg",
+                    // //     fileName: "韩国空难"
+                    // // },
+                ]
+            },
+            "maxs111sp": {
+                name: "常用工具",
+                name_en: "常用工具",
+                content: [
+                    {
+                        name: "goejson在线",
+                        name_en: "Ggoejson在线",
+                        thumbnail: "Goejson.jpg",
+                        fileName: "https://geojson.io/"
+                    },
+                    {
+                        name: "mapshaper",
+                        name_en: "mapshaper",
+                        thumbnail: "mapshaper.jpg",
+                        fileName: "https://mapshaper.org/"
+                    },
+                    {
+                        name: "sketchfab",
+                        name_en: "sketchfab",
+                        thumbnail: "sketchfab.jpg",
+                        fileName: "https://sketchfab.com/feed"
+                    },
+                    {
+                        name: "obj转gltf",
+                        name_en: "obj转gltf",
+                        thumbnail: "obj转gltf.jpg",
+                        fileName: "https://jiawanlong.github.io/Cesium-Examples/examples/cesiumEx/tools/obj2gltf.zip"
+                    },
+                    {
+                        name: "osgb转3dtiles",
+                        name_en: "osgb转3dtiles",
+                        thumbnail: "osgb转3dtiles.jpg",
+                        fileName: "https://jiawanlong.github.io/Cesium-Examples/examples/cesiumEx/tools/osgb23dtiles.zip"
+                    },
+                    {
+                        name: "任意坐标系转换",
+                        name_en: "任意坐标系转换",
+                        thumbnail: "1.19、任意坐标转换.jpg",
+                        fileName: "1.19、任意坐标转换"
+                    },
+                    {
+                        name: "wkt和geojson互转",
+                        name_en: "wkt和geojson互转",
+                        thumbnail: "2.1.13、wkt.jpg",
+                        fileName: "2.1.13、wkt"
+                    },
+                    {
+                        name: "shp转geojson",
+                        name_en: "shp转geojson",
+                        thumbnail: "2.1.14、shp.jpg",
+                        fileName: "2.1.14、shp"
+                    },
+                ]
+            },
+        }
+    },
     "base": {
         name: "1、基础",
         name_en: "base",
@@ -289,12 +289,12 @@ var exampleConfig = {
                     thumbnail: "1.15、罗盘、导航条.jpg",
                     fileName: "1.15、罗盘、导航条"
                 },
-                // {
-                //     name: "1.16、绕点飞行",
-                //     name_en: "1.16、绕点飞行",
-                //     thumbnail: "1.16、绕点飞行.jpg",
-                //     fileName: "1.16、绕点飞行"
-                // },
+                {
+                    name: "1.16、绕点飞行",
+                    name_en: "1.16、绕点飞行",
+                    thumbnail: "1.16、绕点飞行.jpg",
+                    fileName: "1.16、绕点飞行"
+                },
                 // {
                 //     name: "1.17、深度检测",
                 //     name_en: "1.17、深度检测",
@@ -519,12 +519,12 @@ var exampleConfig = {
                     //     thumbnail: "2.3.4、图标.jpg",
                     //     fileName: "2.3.4、图标"
                     // },
-                    // {
-                    //     name: "2.3.5、海量图标",
-                    //     name_en: "2.3.5、海量图标",
-                    //     thumbnail: "2.3.5、海量图标.jpg",
-                    //     fileName: "2.3.5、海量图标"
-                    // },
+                    {
+                        name: "2.3.5、海量图标",
+                        name_en: "2.3.5、海量图标",
+                        thumbnail: "2.3.5、海量图标.jpg",
+                        fileName: "2.3.5、海量图标"
+                    },
                     // {
                     //     name: "2.3.6、popup",
                     //     name_en: "2.3.6、popup",
@@ -597,12 +597,12 @@ var exampleConfig = {
                     //     thumbnail: "2.3.17、聚合.jpg",
                     //     fileName: "2.3.17、聚合"
                     // },
-                    // {
-                    //     name: "2.3.18、czml",
-                    //     name_en: "2.3.18、czml",
-                    //     thumbnail: "2.3.18、czml.jpg",
-                    //     fileName: "2.3.18、czml"
-                    // },
+                    {
+                        name: "2.3.18、czml",
+                        name_en: "2.3.18、czml",
+                        thumbnail: "2.3.18、czml.jpg",
+                        fileName: "2.3.18、czml"
+                    },
                     // {
                     //     name: "2.3.19、字体图标",
                     //     name_en: "2.3.19、字体图标",
@@ -629,244 +629,244 @@ var exampleConfig = {
                     // },
                 ]
             },
-            // "mapfd004ff4": {
-            //     name: "2.4、模型",
-            //     name_en: "2.4、模型",
+            "mapfd004ff4": {
+                name: "2.4、模型",
+                name_en: "2.4、模型",
+                content: [
+                    {
+                        name: "2.4.1、加载模型",
+                        name_en: "2.4.1、加载模型",
+                        thumbnail: "2.4.1、加载模型.jpg",
+                        fileName: "2.4.1、加载模型"
+                    },
+                    // {
+                    //     name: "2.4.2、primitive加载模型",
+                    //     name_en: "2.4.2、primitive加载模型",
+                    //     thumbnail: "2.4.2、primitive加载模型.jpg",
+                    //     fileName: "2.4.2、primitive加载模型"
+                    // },
+                    {
+                        name: "2.4.3、primitive加载大量模型",
+                        name_en: "2.4.3、primitive加载大量模型",
+                        thumbnail: "2.4.3、primitive加载大量模型.jpg",
+                        fileName: "2.4.3、primitive加载大量模型"
+                    },
+                    // {
+                    //     name: "2.4.4、模型运动",
+                    //     name_en: "2.4.4、模型运动",
+                    //     thumbnail: "1.8、时间运动.jpg",
+                    //     fileName: "1.8、时间运动"
+                    // },
+                    {
+                        name: "2.4.5、模型插值运动",
+                        name_en: "2.4.5、模型插值运动",
+                        thumbnail: "2.4.5、模型插值运动.jpg",
+                        fileName: "2.4.5、模型插值运动"
+                    },
+                    // {
+                    //     name: "2.4.6、点击获取子节点",
+                    //     name_en: "2.4.6、点击获取子节点",
+                    //     thumbnail: "2.4.6、点击获取子节点.jpg",
+                    //     fileName: "2.4.6、点击获取子节点"
+                    // },
+                    // {
+                    //     name: "2.4.7、人工模型",
+                    //     name_en: "2.4.7、人工模型",
+                    //     thumbnail: "2.4.7、人工模型.jpg",
+                    //     fileName: "2.4.7、人工模型"
+                    // },
+                    // {
+                    //     name: "2.4.8、风力发电机",
+                    //     name_en: "2.4.8、风力发电机",
+                    //     thumbnail: "2.4.8、风力发电机.jpg",
+                    //     fileName: "2.4.8、风力发电机"
+                    // },
+
+                ]
+            },
+        }
+    },
+    "Online": {
+        name: "3、3Dtiles",
+        name_en: "3、3Dtiles",
+        content: {
+            "mavf48dp5": {
+                name: "3.1、3Dtiles",
+                name_en: "3.1、3Dtiles",
+                content: [
+                    {
+                        name: "3.1.1、加载模型",
+                        name_en: "3.1.1、加载模型",
+                        thumbnail: "3.1.1、加载模型.jpg",
+                        fileName: "3.1.1、加载模型"
+                    },
+                    // {
+                    //     name: "3.1.2、模型偏移",
+                    //     name_en: "3.1.2、模型偏移",
+                    //     thumbnail: "3.1.2、模型偏移.jpg",
+                    //     fileName: "3.1.2、模型偏移"
+                    // },
+                    // {
+                    //     name: "3.1.3、模型位置编辑",
+                    //     name_en: "3.1.3、模型位置编辑",
+                    //     thumbnail: "3.1.3、模型位置编辑.jpg",
+                    //     fileName: "3.1.3、模型位置编辑"
+                    // },
+                    {
+                        name: "3.1.4、customShader自定义材质",
+                        name_en: "3.1.4、customShader自定义材质",
+                        thumbnail: "3.1.4、customShader自定义材质.jpg",
+                        fileName: "3.1.4、customShader自定义材质"
+                    },
+                    // {
+                    //     name: "3.1.5、customShader自定义材质2",
+                    //     name_en: "3.1.5、customShader自定义材质2",
+                    //     thumbnail: "3.1.5、customShader自定义材质2.jpg",
+                    //     fileName: "3.1.5、customShader自定义材质2"
+                    // },
+                    {
+                        name: "3.1.6、点击获取属性",
+                        name_en: "3.1.6、点击获取属性",
+                        thumbnail: "3.1.6、点击获取属性.jpg",
+                        fileName: "3.1.6、点击获取属性"
+                    },
+                    {
+                        name: "3.1.7、模型压平",
+                        name_en: "3.1.7、模型压平",
+                        thumbnail: "3.1.7、模型压平.jpg",
+                        fileName: "3.1.7、模型压平"
+                    },
+                    // {
+                    //     name: "加载超图S3M模型",
+                    //     name_en: "加载超图S3M模型",
+                    //     thumbnail: "s3m.jpg",
+                    //     fileName: "s3m"
+                    // },
+                ]
+            },
+        }
+    },
+    "iManager": {
+        name: "4、空间分析",
+        name_en: "4、空间分析",
+        content: {
+            "ma7899p8787775": {
+                name: "4.1、空间分析",
+                name_en: "4.1、空间分析",
+                content: [
+                    // {
+                    //     name: "4.1.1、地形开挖",
+                    //     name_en: "4.1.1、地形开挖",
+                    //     thumbnail: "4.1.1、地形开挖.jpg",
+                    //     fileName: "4.1.1、地形开挖"
+                    // },
+                    {
+                        name: "4.1.2、可视域分析",
+                        name_en: "4.1.2、可视域分析",
+                        thumbnail: "4.1.2、可视域分析.jpg",
+                        fileName: "4.1.2、可视域分析"
+                    },
+                    {
+                        name: "4.1.3、淹没分析（简易）",
+                        name_en: "4.1.3、淹没分析（简易）",
+                        thumbnail: "4.1.3、淹没分析（简易）.jpg",
+                        fileName: "4.1.3、淹没分析（简易）"
+                    },
+                    // {
+                    //     name: "4.1.4、淹没分析",
+                    //     name_en: "4.1.4、淹没分析",
+                    //     thumbnail: "4.1.4、淹没分析.jpg",
+                    //     fileName: "4.1.4、淹没分析"
+                    // },
+                    {
+                        name: "4.1.5、缓冲分析",
+                        name_en: "4.1.5、缓冲分析",
+                        thumbnail: "4.1.5、缓冲分析.jpg",
+                        fileName: "4.1.5、缓冲分析"
+                    },
+                    // {
+                    //     name: "4.1.6、日照分析",
+                    //     name_en: "4.1.6、日照分析",
+                    //     thumbnail: "4.1.6、日照分析.jpg",
+                    //     fileName: "4.1.6、日照分析"
+                    // },
+                    // {
+                    //     name: "4.1.7、方量分析",
+                    //     name_en: "4.1.7、方量分析",
+                    //     thumbnail: "4.1.7、方量分析.jpg",
+                    //     fileName: "4.1.7、方量分析"
+                    // },
+                    // {
+                    //     name: "4.1.8、透视分析",
+                    //     name_en: "4.1.8、透视分析",
+                    //     thumbnail: "4.1.8、透视分析.jpg",
+                    //     fileName: "4.1.8、透视分析"
+                    // },
+                    // {
+                    //     name: "4.1.9、剖面分析",
+                    //     name_en: "4.1.9、剖面分析",
+                    //     thumbnail: "4.1.9、剖面分析.jpg",
+                    //     fileName: "4.1.9、剖面分析"
+                    // },
+                    // {
+                    //     name: "4.1.10、水域面",
+                    //     name_en: "4.1.10、水域面",
+                    //     thumbnail: "4.1.10、水域面.jpg",
+                    //     fileName: "4.1.10、水域面"
+                    // },
+                    // {
+                    //     name: "4.1.11、单体化",
+                    //     name_en: "4.1.11、单体化",
+                    //     thumbnail: "4.1.11、单体化.jpg",
+                    //     fileName: "4.1.11、单体化"
+                    // },
+                    // {
+                    //     name: "4.1.12、坡度分析",
+                    //     name_en: "4.1.12、坡度分析",
+                    //     thumbnail: "4.1.12、坡度分析.jpg",
+                    //     fileName: "4.1.12、坡度分析"
+                    // },
+                    // {
+                    //     name: "4.1.13、坡向分析",
+                    //     name_en: "4.1.13、坡向分析",
+                    //     thumbnail: "4.1.13、坡向分析.jpg",
+                    //     fileName: "4.1.13、坡向分析"
+                    // },
+                ]
+            },
+            // "ma870o98p6": {
+            //     name: "4.2、量算",
+            //     name_en: "4.2、量算",
             //     content: [
             //         {
-            //             name: "2.4.1、加载模型",
-            //             name_en: "2.4.1、加载模型",
-            //             thumbnail: "2.4.1、加载模型.jpg",
-            //             fileName: "2.4.1、加载模型"
-            //         },
-            //         {
-            //             name: "2.4.2、primitive加载模型",
-            //             name_en: "2.4.2、primitive加载模型",
-            //             thumbnail: "2.4.2、primitive加载模型.jpg",
-            //             fileName: "2.4.2、primitive加载模型"
-            //         },
-            //         {
-            //             name: "2.4.3、primitive加载大量模型",
-            //             name_en: "2.4.3、primitive加载大量模型",
-            //             thumbnail: "2.4.3、primitive加载大量模型.jpg",
-            //             fileName: "2.4.3、primitive加载大量模型"
-            //         },
-            //         {
-            //             name: "2.4.4、模型运动",
-            //             name_en: "2.4.4、模型运动",
-            //             thumbnail: "1.8、时间运动.jpg",
-            //             fileName: "1.8、时间运动"
-            //         },
-            //         {
-            //             name: "2.4.5、模型插值运动",
-            //             name_en: "2.4.5、模型插值运动",
-            //             thumbnail: "2.4.5、模型插值运动.jpg",
-            //             fileName: "2.4.5、模型插值运动"
-            //         },
-            //         {
-            //             name: "2.4.6、点击获取子节点",
-            //             name_en: "2.4.6、点击获取子节点",
-            //             thumbnail: "2.4.6、点击获取子节点.jpg",
-            //             fileName: "2.4.6、点击获取子节点"
-            //         },
-            //         {
-            //             name: "2.4.7、人工模型",
-            //             name_en: "2.4.7、人工模型",
-            //             thumbnail: "2.4.7、人工模型.jpg",
-            //             fileName: "2.4.7、人工模型"
-            //         },
-            //         {
-            //             name: "2.4.8、风力发电机",
-            //             name_en: "2.4.8、风力发电机",
-            //             thumbnail: "2.4.8、风力发电机.jpg",
-            //             fileName: "2.4.8、风力发电机"
+            //             name: "4.2.1、量算工具",
+            //             name_en: "4.2.1、量算工具",
+            //             thumbnail: "4.2.1、量算工具.jpg",
+            //             fileName: "4.2.1、量算工具"
             //         },
 
             //     ]
             // },
+            // "map7447899": {
+            //     name: "4.3、视频融合",
+            //     name_en: "4.3、视频融合",
+            //     content: [
+            //         {
+            //             name: "4.3.1、视频纹理",
+            //             name_en: "4.3.1、视频纹理",
+            //             thumbnail: "4.3.1、视频纹理.jpg",
+            //             fileName: "4.3.1、视频纹理"
+            //         },
+            //         {
+            //             name: "4.3.2、视频投射(直播流)",
+            //             name_en: "4.3.2、视频投射(直播流)",
+            //             thumbnail: "4.3.2、视频投射.jpg",
+            //             fileName: "4.3.2、视频投射"
+            //         },
+            //     ]
+            // },
         }
     },
-    // "Online": {
-    //     name: "3、3Dtiles",
-    //     name_en: "3、3Dtiles",
-    //     content: {
-    //         "mavf48dp5": {
-    //             name: "3.1、3Dtiles",
-    //             name_en: "3.1、3Dtiles",
-    //             content: [
-    //                 {
-    //                     name: "3.1.1、加载模型",
-    //                     name_en: "3.1.1、加载模型",
-    //                     thumbnail: "3.1.1、加载模型.jpg",
-    //                     fileName: "3.1.1、加载模型"
-    //                 },
-    //                 {
-    //                     name: "3.1.2、模型偏移",
-    //                     name_en: "3.1.2、模型偏移",
-    //                     thumbnail: "3.1.2、模型偏移.jpg",
-    //                     fileName: "3.1.2、模型偏移"
-    //                 },
-    //                 {
-    //                     name: "3.1.3、模型位置编辑",
-    //                     name_en: "3.1.3、模型位置编辑",
-    //                     thumbnail: "3.1.3、模型位置编辑.jpg",
-    //                     fileName: "3.1.3、模型位置编辑"
-    //                 },
-    //                 {
-    //                     name: "3.1.4、customShader自定义材质",
-    //                     name_en: "3.1.4、customShader自定义材质",
-    //                     thumbnail: "3.1.4、customShader自定义材质.jpg",
-    //                     fileName: "3.1.4、customShader自定义材质"
-    //                 },
-    //                 {
-    //                     name: "3.1.5、customShader自定义材质2",
-    //                     name_en: "3.1.5、customShader自定义材质2",
-    //                     thumbnail: "3.1.5、customShader自定义材质2.jpg",
-    //                     fileName: "3.1.5、customShader自定义材质2"
-    //                 },
-    //                 {
-    //                     name: "3.1.6、点击获取属性",
-    //                     name_en: "3.1.6、点击获取属性",
-    //                     thumbnail: "3.1.6、点击获取属性.jpg",
-    //                     fileName: "3.1.6、点击获取属性"
-    //                 },
-    //                 {
-    //                     name: "3.1.7、模型压平",
-    //                     name_en: "3.1.7、模型压平",
-    //                     thumbnail: "3.1.7、模型压平.jpg",
-    //                     fileName: "3.1.7、模型压平"
-    //                 },
-    //                 {
-    //                     name: "加载超图S3M模型",
-    //                     name_en: "加载超图S3M模型",
-    //                     thumbnail: "s3m.jpg",
-    //                     fileName: "s3m"
-    //                 },
-    //             ]
-    //         },
-    //     }
-    // },
-    // "iManager": {
-    //     name: "4、空间分析",
-    //     name_en: "4、空间分析",
-    //     content: {
-    //         "ma7899p8787775": {
-    //             name: "4.1、空间分析",
-    //             name_en: "4.1、空间分析",
-    //             content: [
-    //                 {
-    //                     name: "4.1.1、地形开挖",
-    //                     name_en: "4.1.1、地形开挖",
-    //                     thumbnail: "4.1.1、地形开挖.jpg",
-    //                     fileName: "4.1.1、地形开挖"
-    //                 },
-    //                 {
-    //                     name: "4.1.2、可视域分析",
-    //                     name_en: "4.1.2、可视域分析",
-    //                     thumbnail: "4.1.2、可视域分析.jpg",
-    //                     fileName: "4.1.2、可视域分析"
-    //                 },
-    //                 {
-    //                     name: "4.1.3、淹没分析（简易）",
-    //                     name_en: "4.1.3、淹没分析（简易）",
-    //                     thumbnail: "4.1.3、淹没分析（简易）.jpg",
-    //                     fileName: "4.1.3、淹没分析（简易）"
-    //                 },
-    //                 {
-    //                     name: "4.1.4、淹没分析",
-    //                     name_en: "4.1.4、淹没分析",
-    //                     thumbnail: "4.1.4、淹没分析.jpg",
-    //                     fileName: "4.1.4、淹没分析"
-    //                 },
-    //                 {
-    //                     name: "4.1.5、缓冲分析",
-    //                     name_en: "4.1.5、缓冲分析",
-    //                     thumbnail: "4.1.5、缓冲分析.jpg",
-    //                     fileName: "4.1.5、缓冲分析"
-    //                 },
-    //                 {
-    //                     name: "4.1.6、日照分析",
-    //                     name_en: "4.1.6、日照分析",
-    //                     thumbnail: "4.1.6、日照分析.jpg",
-    //                     fileName: "4.1.6、日照分析"
-    //                 },
-    //                 {
-    //                     name: "4.1.7、方量分析",
-    //                     name_en: "4.1.7、方量分析",
-    //                     thumbnail: "4.1.7、方量分析.jpg",
-    //                     fileName: "4.1.7、方量分析"
-    //                 },
-    //                 {
-    //                     name: "4.1.8、透视分析",
-    //                     name_en: "4.1.8、透视分析",
-    //                     thumbnail: "4.1.8、透视分析.jpg",
-    //                     fileName: "4.1.8、透视分析"
-    //                 },
-    //                 {
-    //                     name: "4.1.9、剖面分析",
-    //                     name_en: "4.1.9、剖面分析",
-    //                     thumbnail: "4.1.9、剖面分析.jpg",
-    //                     fileName: "4.1.9、剖面分析"
-    //                 },
-    //                 {
-    //                     name: "4.1.10、水域面",
-    //                     name_en: "4.1.10、水域面",
-    //                     thumbnail: "4.1.10、水域面.jpg",
-    //                     fileName: "4.1.10、水域面"
-    //                 },
-    //                 {
-    //                     name: "4.1.11、单体化",
-    //                     name_en: "4.1.11、单体化",
-    //                     thumbnail: "4.1.11、单体化.jpg",
-    //                     fileName: "4.1.11、单体化"
-    //                 },
-    //                 {
-    //                     name: "4.1.12、坡度分析",
-    //                     name_en: "4.1.12、坡度分析",
-    //                     thumbnail: "4.1.12、坡度分析.jpg",
-    //                     fileName: "4.1.12、坡度分析"
-    //                 },
-    //                 {
-    //                     name: "4.1.13、坡向分析",
-    //                     name_en: "4.1.13、坡向分析",
-    //                     thumbnail: "4.1.13、坡向分析.jpg",
-    //                     fileName: "4.1.13、坡向分析"
-    //                 },
-    //             ]
-    //         },
-    //         "ma870o98p6": {
-    //             name: "4.2、量算",
-    //             name_en: "4.2、量算",
-    //             content: [
-    //                 {
-    //                     name: "4.2.1、量算工具",
-    //                     name_en: "4.2.1、量算工具",
-    //                     thumbnail: "4.2.1、量算工具.jpg",
-    //                     fileName: "4.2.1、量算工具"
-    //                 },
-
-    //             ]
-    //         },
-    //         "map7447899": {
-    //             name: "4.3、视频融合",
-    //             name_en: "4.3、视频融合",
-    //             content: [
-    //                 {
-    //                     name: "4.3.1、视频纹理",
-    //                     name_en: "4.3.1、视频纹理",
-    //                     thumbnail: "4.3.1、视频纹理.jpg",
-    //                     fileName: "4.3.1、视频纹理"
-    //                 },
-    //                 {
-    //                     name: "4.3.2、视频投射(直播流)",
-    //                     name_en: "4.3.2、视频投射(直播流)",
-    //                     thumbnail: "4.3.2、视频投射.jpg",
-    //                     fileName: "4.3.2、视频投射"
-    //                 },
-    //             ]
-    //         },
-    //     }
-    // },
     // "Elasticsearch": {
     //     name: "5、特效",
     //     name_en: "5、特效",
