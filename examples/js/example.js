@@ -4,8 +4,14 @@ $(document).ready(function () {
         bindEvents();
         //懒加载
         var timeout = setTimeout(function () {
-            $("img.chart-thumb").lazyload();
-        }, 1000);
+            $("img.chart-thumb").lazyload({
+                container: $("#charts-list"), // 指定主内容区域为滚动容器
+                threshold: 0, // 提前200px开始加载
+                effect: "fadeIn", // 添加淡入效果
+                failure_limit: 10, // 设置失败重试次数
+                // data_attribute: "original" // 指定存放真实图片地址的 data-* 属性名称。 默认值："original"
+            });
+        }, 0);
 
     });
 });
