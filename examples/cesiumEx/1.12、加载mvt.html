@@ -22,13 +22,15 @@
         viewer.scene.debugShowFramesPerSecond = true;
 
         var mvtLayer = mvt.create({
-            url: 'http://58.218.244.204:30080/dynamic_vector/server/maps/l081dbd44d0ce1000/tiles?type=1&z={z}&x={x}&y={y}',
+            // url: 'http://58.218.244.204:30080/dynamic_vector/server/maps/l081dbd44d0ce1000/tiles?type=1&z={z}&x={x}&y={y}', // 私人
+            // url: 'https://demotiles.maplibre.org/tiles-omt/{z}/{x}/{y}.pbf', // 公开免费
+            url: 'https://demotiles.maplibre.org/tiles/{z}/{x}/{y}.pbf', // 公开免费
             style: mvt.StreetsV6Style
         })
         viewer.imageryLayers.addImageryProvider(mvtLayer)
-        viewer.camera.setView({
-            destination: Cesium.Cartesian3.fromDegrees(111.5, 30.5, 50000.0)
-        })
+        // viewer.camera.setView({
+            // destination: Cesium.Cartesian3.fromDegrees(111.5, 30.5, 50000.0)
+        // })
     </script>
 </body>
 
