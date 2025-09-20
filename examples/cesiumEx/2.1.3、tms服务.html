@@ -24,7 +24,8 @@
 
         var tms = new Cesium.UrlTemplateImageryProvider({
             credit: 'riv_m',
-            url: 'http://39.107.182.155:9000/tserver/wmts.ashx?r={y}&c={x}&l={z}&t=riv_m'
+            // url: 'http://39.107.182.155:9000/tserver/wmts.ashx?r={y}&c={x}&l={z}&t=riv_m'
+            url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
         })
         viewer.imageryLayers.addImageryProvider(tms)
 
