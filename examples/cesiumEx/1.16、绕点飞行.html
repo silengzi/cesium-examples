@@ -19,7 +19,7 @@
         // 给定飞行一周所需时间，比如10s, 那么每秒转动度数
         var angle = 360 / 10
         // 给定相机距离点多少距离飞行，这里取值为5000m
-        var distance = 5000000
+        var distance = 500000
         var heading = Cesium.Math.toRadians(0);
         var pitch = Cesium.Math.toRadians(-30);
         
@@ -30,7 +30,7 @@
         viewer.clock.stopTime = stopTime.clone() // 结束时间
         viewer.clock.currentTime = startTime.clone() // 当前时间
         viewer.clock.clockRange = Cesium.ClockRange.CLAMPED // 行为方式
-        viewer.clock.clockStemp = Cesium.ClockStep.SYETEM_CLOCK // 时钟设置为当前系统时间; 忽略所有其他设置。
+        viewer.clock.clockStep = Cesium.ClockStep.SYSTEM_CLOCK // 时钟设置为当前系统时间; 忽略所有其他设置。
 
         // 相机的当前heading
         var initialHeading = viewer.camera.heading
