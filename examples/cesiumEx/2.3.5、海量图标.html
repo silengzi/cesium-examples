@@ -37,9 +37,10 @@
             bbox: [-180, -90, 180, 90]
         })
         const billboardCollection = viewer.scene.primitives.add(
-            new Cesium.BillboardCoolection()
+            new Cesium.BillboardCollection()
         )
-        points.forEach(point => {
+        console.log(points, 'points')
+        points.features.forEach(point => {
             const coord = point.geometry.coordinates
             billboardCollection.add({
                 // 根据距离缩放
