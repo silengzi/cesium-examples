@@ -28,7 +28,7 @@
         // 创建3D瓦片集（Cesium3DTileset），用于加载三维模型
         // 3D Tiles是Cesium用于高效传输和渲染大量3D数据的标准
         const tileset = new Cesium.Cesium3DTileset({
-            url: './data/tileset.json',  // 瓦片集的配置文件路径
+            url: "http://mapgl.com/data/model/qx-simiao/tileset.json",  // 瓦片集的配置文件路径
             maximumScreenSpaceError: 1,  // 最大屏幕空间误差，控制LOD（细节层次）切换
         })
 
