@@ -471,12 +471,12 @@ var exampleConfig = {
                 name: "2.2、地形",
                 name_en: "2.2、地形",
                 content: [
-                    {
-                        name: "2.2.1、离线地形",
-                        name_en: "2.2.1、离线地形",
-                        thumbnail: "2.2.1、离线地形.jpg",
-                        fileName: "2.2.1、离线地形"
-                    },
+                    // {
+                    //     name: "2.2.1、离线地形",
+                    //     name_en: "2.2.1、离线地形",
+                    //     thumbnail: "2.2.1、离线地形.jpg",
+                    //     fileName: "2.2.1、离线地形"
+                    // },
                     {
                         name: "2.2.2、默认地形",
                         name_en: "2.2.2、默认地形",
