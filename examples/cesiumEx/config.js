@@ -736,6 +736,12 @@ var exampleConfig = {
                         thumbnail: "3.1.7、模型压平.jpg",
                         fileName: "3.1.7、模型压平"
                     },
+                    {
+                        name: "3.1.8、3D Tiles大雁塔",
+                        name_en: "3.1.8、3D Tiles大雁塔",
+                        thumbnail: "3.1.8、3D Tiles大雁塔.jpg",
+                        fileName: "3.1.8、3D Tiles大雁塔"
+                    },
                     // {
                     //     name: "加载超图S3M模型",
                     //     name_en: "加载超图S3M模型",
